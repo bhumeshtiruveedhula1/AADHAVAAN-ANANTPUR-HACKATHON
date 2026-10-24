@@ -1,0 +1,42 @@
+# Dependencies
+node_modules/
+
+# Expo and Metro
+.expo/
+dist/
+web-build/
+expo-env.d.ts
+.metro-health-check*
+
+# Native build artifacts
+.kotlin/
+*.orig.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+/ios
+/android
+
+# Environment variables and credentials
+.env
+.env*.local
+.env.local
+.env.production
+*.pem
+
+# Debug logs
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+
+# TypeScript
+*.tsbuildinfo
+
+# OS and system files
+.DS_Store
+Thumbs.db
+
+# Local extraction guides/archives
+smart-nagrik-mobile/
