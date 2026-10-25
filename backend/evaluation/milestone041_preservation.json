@@ -1,0 +1,12 @@
+{
+  "app_parts": {
+    "app_before_result": "112ace911ee227460e3dee6eb98b3fd40cd5a69e50ba6976f9d37071205095b3",
+    "app_after_result": "a169d055c2e668b7b96696928507ef1fddff1c9d49b51e9855e93ff1cb1917e7"
+  },
+  "files": {
+    "backend/intents.py": "38a9903e08d8e21118655abe0e9e8fb930c19dc21463be0d8df9005442a44c92",
+    "backend/groq_provider.py": "960e635550833435f028ee2c3869b7f8496ebdefadacc41cd3f491ac059c5af6",
+    "backend/twilio_adapter.py": "651d58919057cf29daca6484166c583d067dfd51594f6a1a90c0dbb8fe7725a0",
+    "frontend-app/app.json": "8c4472d4da6a6f806861170c33b3d5b0757e4c0c0c40534974b5dc9cc999f631"
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "attempts": [
+    {
+      "performed_at": "2026-10-25T01:19:07.873195+00:00",
+      "case": "places",
+      "request": {
+        "message": "Find hotels near Majestic in Bengaluru.",
+        "city": "Bengaluru"
+      },
+      "weather_interval_semantics": "temperature at interval start; precipitation for preceding hour at interval end",
+      "http_status": 200,
+      "timings": {
+        "intent_seconds": 1.1364,
+        "places_seconds": 0.5043,
+        "endpoint_seconds": 1.6417
+      },
+      "google_key_configured": true,
+      "verified": false,
+      "boundary": "Flask test client -> live Groq -> live provider -> composer; no device or Twilio delivery",
+      "response": {
+        "status": "provider_error",
+        "place_count": 0
+      }
+    },
+    {
+      "performed_at": "2026-10-25T01:22:06.404905+00:00",
+      "case": "places",
+      "request": {
+        "message": "Find hotels near Majestic in Bengaluru.",
+        "city": "Bengaluru"
+      },
+      "weather_interval_semantics": "temperature at interval start; precipitation for preceding hour at interval end",
+      "http_status": 200,
+      "timings": {
+        "intent_seconds": 0.9701,
+        "places_seconds": 0.4932,
+        "endpoint_seconds": 1.4656
+      },
+      "google_key_configured": true,
+      "verified": false,
+      "boundary": "Flask test client -> live Groq -> live provider -> composer; no device or Twilio delivery",
+      "response": {
+        "status": "provider_error",
+        "place_count": 0
+      }
+    },
+    {
+      "performed_at": "2026-10-25T01:22:43.257032+00:00",
+      "case": "places",
+      "request": {
+        "message": "Find hotels near Majestic in Bengaluru.",
+        "city": "Bengaluru"
+      },
+      "weather_interval_semantics": "temperature at interval start; precipitation for preceding hour at interval end",
+      "http_status": 200,
+      "timings": {
+        "intent_seconds": 1.0797,
+        "places_seconds": 0.5205,
+        "endpoint_seconds": 1.6012
+      },
+      "google_key_configured": true,
+      "verified": false,
+      "boundary": "Flask test client -> live Groq -> live provider -> composer; no device or Twilio delivery",
+      "response": {
+        "status": "provider_error",
+        "place_count": 0
+      }
+    },
+    {
+      "performed_at": "2026-10-25T01:40:16.024088+00:00",
+      "case": "places",
+      "request": {
+        "message": "Find hotels near Majestic in Bengaluru.",
+        "city": "Bengaluru"
+      },
+      "weather_interval_semantics": "temperature at interval start; precipitation for preceding hour at interval end",
+      "http_status": 200,
+      "timings": {
+        "intent_seconds": 1.255,
+        "places_seconds": 0.447,
+        "endpoint_seconds": 1.7042
+      },
+      "google_key_configured": true,
+      "verified": false,
+      "boundary": "Flask test client -> live Groq -> live provider -> composer; no device or Twilio delivery",
+      "response": {
+        "status": "provider_error",
+        "place_count": 0
+      }
+    },
+    {
+      "performed_at": "2026-10-25T01:48:14.877556+00:00",
+      "case": "places",
+      "request": {
+        "message": "Find hotels near Majestic in Bengaluru.",
+        "city": "Bengaluru"
+      },
+      "weather_interval_semantics": "temperature at interval start; precipitation for preceding hour at interval end",
+      "http_status": 200,
+      "timings": {
+        "intent_seconds": 1.3918,
+        "places_seconds": 1.1073,
+        "endpoint_seconds": 2.5003
+      },
+      "google_key_configured": true,
+      "verified": true,
+      "boundary": "Flask test client -> live Groq -> live provider -> composer; no device or Twilio delivery",
+      "response": {
+        "status": "ok",
+        "place_count": 5
+      }
+    }
+  ]
+}

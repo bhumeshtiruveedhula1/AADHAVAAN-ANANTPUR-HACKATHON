@@ -1,0 +1,4258 @@
+{
+  "started_utc": "2026-10-24T22:25:09.362070+00:00",
+  "configuration_sha256": "50ad234e724e42995a2979442401cbdb9444e803c591205af5e1ac01bef6260c",
+  "boundary": "process_text wall time including provider, validation and response mapping; not Android network latency",
+  "pacing_seconds_excluded_from_latency": 8,
+  "live": true,
+  "records": [
+    {
+      "model": "openai/gpt-oss-20b",
+      "case_id": "A",
+      "core": true,
+      "state": "completed",
+      "seconds": 1.3047316999873146,
+      "response": {
+        "type": "unavailable",
+        "title": "Request understood",
+        "description": "I understood that you need help with accommodation, but live city results are not available yet. No lookup or action has been performed.",
+        "details": [
+          "Need: accommodation",
+          "City services not connected"
+        ],
+        "places": [],
+        "status": "service_not_configured",
+        "source": null,
+        "understanding": {
+          "primary_intent": "accommodation",
+          "secondary_intents": [
+            "food_places"
+          ],
+          "language": null,
+          "city": "Bengaluru",
+          "area": null,
+          "landmark": null,
+          "origin": null,
+          "destination": null,
+          "exact_location": null,
+          "report_id": null,
+          "budget": {
+            "amount": 1500.0,
+            "currency": "INR",
+            "raw_text": "under 1500 rupees",
+            "constraint": "maximum"
+          },
+          "time_constraint": "4 AM",
+          "duration": null,
+          "transport_preference": null,
+          "preferences": [],
+          "accessibility_constraints": [],
+          "civic_category": null,
+          "missing_information": [],
+          "entities": [
+            {
+              "type": "time",
+              "value": "4 AM",
+              "evidence": "I reached Majestic at 4 AM"
+            },
+            {
+              "type": "budget",
+              "value": "1500.0",
+              "evidence": "under 1500 rupees"
+            },
+            {
+              "type": "currency",
+              "value": "INR",
+              "evidence": "rupees"
+            }
+          ],
+          "validation_warnings": [
+            {
+              "path": "entities.0.evidence",
+              "code": "ungrounded_evidence"
+            }
+          ],
+          "original_text": "I reached Majestic at 4 AM. I need a hotel under 1500 rupees and something to eat.",
+          "action": null,
+          "method": "groq",
+          "clarification_needed": false,
+          "suggested_service_handler": "accommodation_service",
+          "processing_status": "understood"
+        },
+        "interpretation_status": "understood"
+      },
+      "raw_extraction": {
+        "primary_intent": "accommodation",
+        "secondary_intents": [
+          "food_places"
+        ],
+        "entities": [
+          {
+            "type": "city",
+            "value": "Bengaluru",
+            "evidence": "\"city\": \"Bengaluru\""
+          },
+          {
+            "type": "time",
+            "value": "4 AM",
+            "evidence": "I reached Majestic at 4 AM"
+          },
+          {
+            "type": "budget",
+            "value": "1500",
+            "evidence": "under 1500 rupees"
+          },
+          {
+            "type": "currency",
+            "value": "INR",
+            "evidence": "rupees"
+          }
+        ]
+      },
+      "score": {
+        "primary_correct": true,
+        "secondary_correct": true,
+        "required_entities": {
+          "area|landmark": false,
+          "budget.amount": true,
+          "budget.currency": true,
+          "time_constraint": true
+        },
+        "missing_explicit_entities": [
+          "area|landmark"
+        ],
+        "clarification_correct": true,
+        "unsupported_or_ungrounded_entities_rejected": 1,
+        "passed": false
+      }
+    },
+    {
+      "model": "openai/gpt-oss-120b",
+      "case_id": "A",
+      "core": true,
+      "state": "completed",
+      "seconds": 3.171600600006059,
+      "response": {
+        "type": "unavailable",
+        "title": "Request understood",
+        "description": "I understood that you need help with accommodation, but live city results are not available yet. No lookup or action has been performed.",
+        "details": [
+          "Need: accommodation",
+          "City services not connected"
+        ],
+        "places": [],
+        "status": "service_not_configured",
+        "source": null,
+        "understanding": {
+          "primary_intent": "accommodation",
+          "secondary_intents": [
+            "food_places"
+          ],
+          "language": null,
+          "city": "Bengaluru",
+          "area": null,
+          "landmark": null,
+          "origin": null,
+          "destination": null,
+          "exact_location": null,
+          "report_id": null,
+          "budget": null,
+          "time_constraint": null,
+          "duration": null,
+          "transport_preference": null,
+          "preferences": [],
+          "accessibility_constraints": [],
+          "civic_category": null,
+          "missing_information": [],
+          "entities": [],
+          "validation_warnings": [
+            {
+              "path": "entities.0.evidence",
+              "code": "ungrounded_evidence"
+            },
+            {
+              "path": "entities.1.evidence",
+              "code": "ungrounded_evidence"
+            },
+            {
+              "path": "entities.2.evidence",
+              "code": "ungrounded_evidence"
+            },
+            {
+              "path": "entities.3.evidence",
+              "code": "ungrounded_evidence"
+            }
+          ],
+          "original_text": "I reached Majestic at 4 AM. I need a hotel under 1500 rupees and something to eat.",
+          "action": null,
+          "method": "groq",
+          "clarification_needed": false,
+          "suggested_service_handler": "accommodation_service",
+          "processing_status": "understood"
+        },
+        "interpretation_status": "understood"
+      },
+      "raw_extraction": {
+        "primary_intent": "accommodation",
+        "secondary_intents": [
+          "food_places"
+        ],
+        "entities": [
+          {
+            "type": "landmark",
+            "value": "Majestic",
+            "evidence": "\"I reached Majestic at 4 AM\""
+          },
+          {
+            "type": "time",
+            "value": "4 AM",
+            "evidence": "\"I reached Majestic at 4 AM\""
+          },
+          {
+            "type": "budget",
+            "value": "1500",
+            "evidence": "\"I need a hotel under 1500 rupees\""
+          },
+          {
+            "type": "currency",
+            "value": "INR",
+            "evidence": "\"1500 rupees\""
+          }
+        ]
+      },
+      "score": {
+        "primary_correct": true,
+        "secondary_correct": true,
+        "required_entities": {
+          "area|landmark": false,
+          "budget.amount": false,
+          "budget.currency": false,
+          "time_constraint": false
+        },
+        "missing_explicit_entities": [
+          "area|landmark",
+          "budget.amount",
+          "budget.currency",
+          "time_constraint"
+        ],
+        "clarification_correct": true,
+        "unsupported_or_ungrounded_entities_rejected": 4,
+        "passed": false
+      }
+    },
+    {
+      "model": "openai/gpt-oss-20b",
+      "case_id": "B",
+      "core": true,
+      "state": "completed",
+      "seconds": 0.988816199998837,
+      "response": {
+        "type": "guide",
+        "title": "A little more information is needed",
+        "description": "Please tell me your starting point, your destination. No city lookup or action has been performed.",
+        "details": [
+          "Need: transport",
+          "City services not connected"
+        ],
+        "places": [],
+        "status": "clarification_required",
+        "source": null,
+        "understanding": {
+          "primary_intent": "transport",
+          "secondary_intents": [],
+          "language": null,
+          "city": "Bengaluru",
+          "area": null,
+          "landmark": null,
+          "origin": null,
+          "destination": null,
+          "exact_location": null,
+          "report_id": null,
+          "budget": null,
+          "time_constraint": null,
+          "duration": null,
+          "transport_preference": null,
+          "preferences": [],
+          "accessibility_constraints": [],
+          "civic_category": null,
+          "missing_information": [
+            "origin",
+            "destination"
+          ],
+          "entities": [],
+          "validation_warnings": [],
+          "original_text": "How do I get to Majestic by metro?",
+          "action": null,
+          "method": "groq",
+          "clarification_needed": true,
+          "suggested_service_handler": "transport_service",
+          "processing_status": "clarification_required"
+        },
+        "interpretation_status": "clarification_required"
+      },
+      "raw_extraction": {
+        "primary_intent": "transport",
+        "secondary_intents": [],
+        "entities": []
+      },
+      "score": {
+        "primary_correct": true,
+        "secondary_correct": true,
+        "required_entities": {
+          "destination": false,
+          "origin": true,
+          "transport_preference": false
+        },
+        "missing_explicit_entities": [
+          "destination",
+          "transport_preference"
+        ],
+        "clarification_correct": false,
+        "unsupported_or_ungrounded_entities_rejected": 0,
+        "passed": false
+      }
+    },
+    {
+      "model": "openai/gpt-oss-120b",
+      "case_id": "B",
+      "core": true,
+      "state": "completed",
+      "seconds": 1.0101474999974016,
+      "response": {
+        "type": "guide",
+        "title": "A little more information is needed",
+        "description": "Please tell me your starting point, your destination. No city lookup or action has been performed.",
+        "details": [
+          "Need: transport",
+          "City services not connected"
+        ],
+        "places": [],
+        "status": "clarification_required",
+        "source": null,
+        "understanding": {
+          "primary_intent": "transport",
+          "secondary_intents": [],
+          "language": null,
+          "city": "Bengaluru",
+          "area": null,
+          "landmark": null,
+          "origin": null,
+          "destination": null,
+          "exact_location": null,
+          "report_id": null,
+          "budget": null,
+          "time_constraint": null,
+          "duration": null,
+          "transport_preference": null,
+          "preferences": [],
+          "accessibility_constraints": [],
+          "civic_category": null,
+          "missing_information": [
+            "origin",
+            "destination"
+          ],
+          "entities": [],
+          "validation_warnings": [
+            {
+              "path": "entities.0.evidence",
+              "code": "ungrounded_evidence"
+            },
+            {
+              "path": "entities.1.evidence",
+              "code": "ungrounded_evidence"
+            }
+          ],
+          "original_text": "How do I get to Majestic by metro?",
+          "action": null,
+          "method": "groq",
+          "clarification_needed": true,
+          "suggested_service_handler": "transport_service",
+          "processing_status": "clarification_required"
+        },
+        "interpretation_status": "clarification_required"
+      },
+      "raw_extraction": {
+        "primary_intent": "transport",
+        "secondary_intents": [],
+        "entities": [
+          {
+            "type": "destination",
+            "value": "Majestic",
+            "evidence": "\"How do I get to Majestic by metro?\""
+          },
+          {
+            "type": "transport_preference",
+            "value": "metro",
+            "evidence": "\"How do I get to Majestic by metro?\""
+          }
+        ]
+      },
+      "score": {
+        "primary_correct": true,
+        "secondary_correct": true,
+        "required_entities": {
+          "destination": false,
+          "origin": true,
+          "transport_preference": false
+        },
+        "missing_explicit_entities": [
+          "destination",
+          "transport_preference"
+        ],
+        "clarification_correct": false,
+        "unsupported_or_ungrounded_entities_rejected": 2,
+        "passed": false
+      }
+    },
+    {
+      "model": "openai/gpt-oss-20b",
+      "case_id": "C",
+      "core": true,
+      "state": "completed",
+      "seconds": 1.1074654999829363,
+      "response": {
+        "type": "guide",
+        "title": "A little more information is needed",
+        "description": "Please tell me the exact street, address or landmark. No city lookup or action has been performed.",
+        "details": [
+          "Need: civic report",
+          "City services not connected"
+        ],
+        "places": [],
+        "status": "clarification_required",
+        "source": null,
+        "understanding": {
+          "primary_intent": "civic_report",
+          "secondary_intents": [],
+          "language": null,
+          "city": "Bengaluru",
+          "area": null,
+          "landmark": null,
+          "origin": null,
+          "destination": null,
+          "exact_location": null,
+          "report_id": null,
+          "budget": null,
+          "time_constraint": null,
+          "duration": null,
+          "transport_preference": null,
+          "preferences": [],
+          "accessibility_constraints": [],
+          "civic_category": "pothole",
+          "missing_information": [
+            "exact_location"
+          ],
+          "entities": [
+            {
+              "type": "civic_category",
+              "value": "pothole",
+              "evidence": "There is a dangerous pothole outside my college."
+            }
+          ],
+          "validation_warnings": [
+            {
+              "path": "entities.1.evidence",
+              "code": "ungrounded_evidence"
+            }
+          ],
+          "original_text": "There is a dangerous pothole outside my college.",
+          "action": null,
+          "method": "groq",
+          "clarification_needed": true,
+          "suggested_service_handler": "report_service",
+          "processing_status": "clarification_required"
+        },
+        "interpretation_status": "clarification_required"
+      },
+      "raw_extraction": {
+        "primary_intent": "civic_report",
+        "secondary_intents": [],
+        "entities": [
+          {
+            "type": "civic_category",
+            "value": "pothole",
+            "evidence": "There is a dangerous pothole outside my college."
+          },
+          {
+            "type": "city",
+            "value": "Bengaluru",
+            "evidence": "city: Bengaluru"
+          }
+        ]
+      },
+      "score": {
+        "primary_correct": true,
+        "secondary_correct": true,
+        "required_entities": {
+          "civic_category": true,
+          "exact_location": true
+        },
+        "missing_explicit_entities": [],
+        "clarification_correct": true,
+        "unsupported_or_ungrounded_entities_rejected": 1,
+        "passed": true
+      }
+    },
+    {
+      "model": "openai/gpt-oss-120b",
+      "case_id": "C",
+      "core": true,
+      "state": "completed",
+      "seconds": 1.2140546000155155,
+      "response": {
+        "type": "guide",
+        "title": "A little more information is needed",
+        "description": "Please tell me the exact street, address or landmark. No city lookup or action has been performed.",
+        "details": [
+          "Need: civic report",
+          "City services not connected"
+        ],
+        "places": [],
+        "status": "clarification_required",
+        "source": null,
+        "understanding": {
+          "primary_intent": "civic_report",
+          "secondary_intents": [],
+          "language": null,
+          "city": "Bengaluru",
+          "area": null,
+          "landmark": null,
+          "origin": null,
+          "destination": null,
+          "exact_location": null,
+          "report_id": null,
+          "budget": null,
+          "time_constraint": null,
+          "duration": null,
+          "transport_preference": null,
+          "preferences": [],
+          "accessibility_constraints": [],
+          "civic_category": null,
+          "missing_information": [
+            "exact_location"
+          ],
+          "entities": [],
+          "validation_warnings": [
+            {
+              "path": "entities.0.evidence",
+              "code": "ungrounded_evidence"
+            }
+          ],
+          "original_text": "There is a dangerous pothole outside my college.",
+          "action": null,
+          "method": "groq",
+          "clarification_needed": true,
+          "suggested_service_handler": "report_service",
+          "processing_status": "clarification_required"
+        },
+        "interpretation_status": "clarification_required"
+      },
+      "raw_extraction": {
+        "primary_intent": "civic_report",
+        "secondary_intents": [],
+        "entities": [
+          {
+            "type": "civic_category",
+            "value": "pothole",
+            "evidence": "\"There is a dangerous pothole outside my college.\""
+          }
+        ]
+      },
+      "score": {
+        "primary_correct": true,
+        "secondary_correct": true,
+        "required_entities": {
+          "civic_category": false,
+          "exact_location": true
+        },
+        "missing_explicit_entities": [
+          "civic_category"
+        ],
+        "clarification_correct": true,
+        "unsupported_or_ungrounded_entities_rejected": 1,
+        "passed": false
+      }
+    },
+    {
+      "model": "openai/gpt-oss-20b",
+      "case_id": "D",
+      "core": true,
+      "state": "completed",
+      "seconds": 1.010043099988252,
+      "response": {
+        "type": "guide",
+        "title": "A little more information is needed",
+        "description": "Please tell me your city. No city lookup or action has been performed.",
+        "details": [
+          "Need: weather conditions",
+          "City services not connected"
+        ],
+        "places": [],
+        "status": "clarification_required",
+        "source": null,
+        "understanding": {
+          "primary_intent": "weather_conditions",
+          "secondary_intents": [],
+          "language": null,
+          "city": null,
+          "area": null,
+          "landmark": null,
+          "origin": null,
+          "destination": null,
+          "exact_location": null,
+          "report_id": null,
+          "budget": null,
+          "time_constraint": null,
+          "duration": null,
+          "transport_preference": null,
+          "preferences": [],
+          "accessibility_constraints": [],
+          "civic_category": null,
+          "missing_information": [
+            "city"
+          ],
+          "entities": [],
+          "validation_warnings": [],
+          "original_text": "Will it rain in Bengaluru this evening?",
+          "action": null,
+          "method": "groq",
+          "clarification_needed": true,
+          "suggested_service_handler": "weather_service",
+          "processing_status": "clarification_required"
+        },
+        "interpretation_status": "clarification_required"
+      },
+      "raw_extraction": {
+        "primary_intent": "weather_conditions",
+        "secondary_intents": [],
+        "entities": []
+      },
+      "score": {
+        "primary_correct": true,
+        "secondary_correct": true,
+        "required_entities": {
+          "city": false,
+          "time_constraint": false
+        },
+        "missing_explicit_entities": [
+          "city",
+          "time_constraint"
+        ],
+        "clarification_correct": false,
+        "unsupported_or_ungrounded_entities_rejected": 0,
+        "passed": false
+      }
+    },
+    {
+      "model": "openai/gpt-oss-120b",
+      "case_id": "D",
+      "core": true,
+      "state": "completed",
+      "seconds": 1.1086346999800298,
+      "response": {
+        "type": "guide",
+        "title": "A little more information is needed",
+        "description": "Please tell me your city. No city lookup or action has been performed.",
+        "details": [
+          "Need: weather conditions",
+          "City services not connected"
+        ],
+        "places": [],
+        "status": "clarification_required",
+        "source": null,
+        "understanding": {
+          "primary_intent": "weather_conditions",
+          "secondary_intents": [],
+          "language": null,
+          "city": null,
+          "area": null,
+          "landmark": null,
+          "origin": null,
+          "destination": null,
+          "exact_location": null,
+          "report_id": null,
+          "budget": null,
+          "time_constraint": null,
+          "duration": null,
+          "transport_preference": null,
+          "preferences": [],
+          "accessibility_constraints": [],
+          "civic_category": null,
+          "missing_information": [
+            "city"
+          ],
+          "entities": [],
+          "validation_warnings": [
+            {
+              "path": "entities.0.evidence",
+              "code": "ungrounded_evidence"
+            }
+          ],
+          "original_text": "Will it rain in Bengaluru this evening?",
+          "action": null,
+          "method": "groq",
+          "clarification_needed": true,
+          "suggested_service_handler": "weather_service",
+          "processing_status": "clarification_required"
+        },
+        "interpretation_status": "clarification_required"
+      },
+      "raw_extraction": {
+        "primary_intent": "weather_conditions",
+        "secondary_intents": [],
+        "entities": [
+          {
+            "type": "time",
+            "value": "this evening",
+            "evidence": "\"Will it rain in Bengaluru this evening?\""
+          }
+        ]
+      },
+      "score": {
+        "primary_correct": true,
+        "secondary_correct": true,
+        "required_entities": {
+          "city": false,
+          "time_constraint": false
+        },
+        "missing_explicit_entities": [
+          "city",
+          "time_constraint"
+        ],
+        "clarification_correct": false,
+        "unsupported_or_ungrounded_entities_rejected": 1,
+        "passed": false
+      }
+    },
+    {
+      "model": "openai/gpt-oss-20b",
+      "case_id": "E",
+      "core": true,
+      "state": "completed",
+      "seconds": 1.0066394000023138,
+      "response": {
+        "type": "guide",
+        "title": "A little more information is needed",
+        "description": "Please tell me your city. No city lookup or action has been performed.",
+        "details": [
+          "Need: tourism",
+          "City services not connected"
+        ],
+        "places": [],
+        "status": "clarification_required",
+        "source": null,
+        "understanding": {
+          "primary_intent": "tourism",
+          "secondary_intents": [],
+          "language": null,
+          "city": null,
+          "area": null,
+          "landmark": null,
+          "origin": null,
+          "destination": null,
+          "exact_location": null,
+          "report_id": null,
+          "budget": null,
+          "time_constraint": null,
+          "duration": null,
+          "transport_preference": null,
+          "preferences": [],
+          "accessibility_constraints": [],
+          "civic_category": null,
+          "missing_information": [
+            "city"
+          ],
+          "entities": [],
+          "validation_warnings": [],
+          "original_text": "Plan a one-day visit around Bengaluru.",
+          "action": null,
+          "method": "groq",
+          "clarification_needed": true,
+          "suggested_service_handler": "itinerary_service",
+          "processing_status": "clarification_required"
+        },
+        "interpretation_status": "clarification_required"
+      },
+      "raw_extraction": {
+        "primary_intent": "tourism",
+        "secondary_intents": [],
+        "entities": []
+      },
+      "score": {
+        "primary_correct": true,
+        "secondary_correct": true,
+        "required_entities": {
+          "city": false,
+          "duration": false
+        },
+        "missing_explicit_entities": [
+          "city",
+          "duration"
+        ],
+        "clarification_correct": false,
+        "unsupported_or_ungrounded_entities_rejected": 0,
+        "passed": false
+      }
+    },
+    {
+      "model": "openai/gpt-oss-120b",
+      "case_id": "E",
+      "core": true,
+      "state": "completed",
+      "seconds": 0.6757868000131566,
+      "response": {
+        "type": "guide",
+        "title": "A little more information is needed",
+        "description": "Please tell me your city. No city lookup or action has been performed.",
+        "details": [
+          "Need: tourism",
+          "City services not connected"
+        ],
+        "places": [],
+        "status": "clarification_required",
+        "source": null,
+        "understanding": {
+          "primary_intent": "tourism",
+          "secondary_intents": [],
+          "language": null,
+          "city": null,
+          "area": null,
+          "landmark": null,
+          "origin": null,
+          "destination": null,
+          "exact_location": null,
+          "report_id": null,
+          "budget": null,
+          "time_constraint": null,
+          "duration": null,
+          "transport_preference": null,
+          "preferences": [],
+          "accessibility_constraints": [],
+          "civic_category": null,
+          "missing_information": [
+            "city"
+          ],
+          "entities": [],
+          "validation_warnings": [],
+          "original_text": "Plan a one-day visit around Bengaluru.",
+          "action": null,
+          "method": "groq",
+          "clarification_needed": true,
+          "suggested_service_handler": "itinerary_service",
+          "processing_status": "clarification_required"
+        },
+        "interpretation_status": "clarification_required"
+      },
+      "raw_extraction": {
+        "primary_intent": "tourism",
+        "secondary_intents": [],
+        "entities": []
+      },
+      "score": {
+        "primary_correct": true,
+        "secondary_correct": true,
+        "required_entities": {
+          "city": false,
+          "duration": false
+        },
+        "missing_explicit_entities": [
+          "city",
+          "duration"
+        ],
+        "clarification_correct": false,
+        "unsupported_or_ungrounded_entities_rejected": 0,
+        "passed": false
+      }
+    },
+    {
+      "model": "openai/gpt-oss-20b",
+      "case_id": "06",
+      "core": false,
+      "state": "completed",
+      "seconds": 1.134494400001131,
+      "response": {
+        "type": "guide",
+        "title": "A little more information is needed",
+        "description": "Please tell me your city. No city lookup or action has been performed.",
+        "details": [
+          "Need: accommodation",
+          "City services not connected"
+        ],
+        "places": [],
+        "status": "clarification_required",
+        "source": null,
+        "understanding": {
+          "primary_intent": "accommodation",
+          "secondary_intents": [],
+          "language": null,
+          "city": null,
+          "area": null,
+          "landmark": null,
+          "origin": null,
+          "destination": "Yeshwanthpur",
+          "exact_location": null,
+          "report_id": null,
+          "budget": null,
+          "time_constraint": "after midnight",
+          "duration": null,
+          "transport_preference": null,
+          "preferences": [],
+          "accessibility_constraints": [],
+          "civic_category": null,
+          "missing_information": [
+            "city"
+          ],
+          "entities": [
+            {
+              "type": "destination",
+              "value": "Yeshwanthpur",
+              "evidence": "near Yeshwanthpur"
+            },
+            {
+              "type": "time",
+              "value": "after midnight",
+              "evidence": "after midnight"
+            }
+          ],
+          "validation_warnings": [],
+          "original_text": "Can I check into a lodge near Yeshwanthpur after midnight?",
+          "action": null,
+          "method": "groq",
+          "clarification_needed": true,
+          "suggested_service_handler": "accommodation_service",
+          "processing_status": "clarification_required"
+        },
+        "interpretation_status": "clarification_required"
+      },
+      "raw_extraction": {
+        "primary_intent": "accommodation",
+        "secondary_intents": [],
+        "entities": [
+          {
+            "type": "destination",
+            "value": "Yeshwanthpur",
+            "evidence": "near Yeshwanthpur"
+          },
+          {
+            "type": "time",
+            "value": "after midnight",
+            "evidence": "after midnight"
+          }
+        ]
+      },
+      "score": {
+        "primary_correct": true,
+        "secondary_correct": true,
+        "required_entities": {
+          "area|landmark": false,
+          "time_constraint": true,
+          "city": true
+        },
+        "missing_explicit_entities": [
+          "area|landmark"
+        ],
+        "clarification_correct": true,
+        "unsupported_or_ungrounded_entities_rejected": 0,
+        "passed": false
+      }
+    },
+    {
+      "model": "openai/gpt-oss-120b",
+      "case_id": "06",
+      "core": false,
+      "state": "completed",
+      "seconds": 0.9217603999713901,
+      "response": {
+        "type": "guide",
+        "title": "A little more information is needed",
+        "description": "Please tell me your city. No city lookup or action has been performed.",
+        "details": [
+          "Need: accommodation",
+          "City services not connected"
+        ],
+        "places": [],
+        "status": "clarification_required",
+        "source": null,
+        "understanding": {
+          "primary_intent": "accommodation",
+          "secondary_intents": [],
+          "language": null,
+          "city": null,
+          "area": null,
+          "landmark": null,
+          "origin": null,
+          "destination": null,
+          "exact_location": null,
+          "report_id": null,
+          "budget": null,
+          "time_constraint": null,
+          "duration": null,
+          "transport_preference": null,
+          "preferences": [],
+          "accessibility_constraints": [],
+          "civic_category": null,
+          "missing_information": [
+            "city"
+          ],
+          "entities": [],
+          "validation_warnings": [
+            {
+              "path": "entities.0.evidence",
+              "code": "ungrounded_evidence"
+            },
+            {
+              "path": "entities.1.evidence",
+              "code": "ungrounded_evidence"
+            },
+            {
+              "path": "entities.2.evidence",
+              "code": "ungrounded_evidence"
+            }
+          ],
+          "original_text": "Can I check into a lodge near Yeshwanthpur after midnight?",
+          "action": null,
+          "method": "groq",
+          "clarification_needed": true,
+          "suggested_service_handler": "accommodation_service",
+          "processing_status": "clarification_required"
+        },
+        "interpretation_status": "clarification_required"
+      },
+      "raw_extraction": {
+        "primary_intent": "accommodation",
+        "secondary_intents": [],
+        "entities": [
+          {
+            "type": "area",
+            "value": "Yeshwanthpur",
+            "evidence": "\"near Yeshwanthpur\""
+          },
+          {
+            "type": "time",
+            "value": "after midnight",
+            "evidence": "\"after midnight\""
+          },
+          {
+            "type": "preference",
+            "value": "check-in",
+            "evidence": "\"Can I check into a lodge\""
+          }
+        ]
+      },
+      "score": {
+        "primary_correct": true,
+        "secondary_correct": true,
+        "required_entities": {
+          "area|landmark": false,
+          "time_constraint": false,
+          "city": true
+        },
+        "missing_explicit_entities": [
+          "area|landmark",
+          "time_constraint"
+        ],
+        "clarification_correct": true,
+        "unsupported_or_ungrounded_entities_rejected": 3,
+        "passed": false
+      }
+    },
+    {
+      "model": "openai/gpt-oss-20b",
+      "case_id": "07",
+      "core": false,
+      "state": "completed",
+      "seconds": 1.1750804999901447,
+      "response": {
+        "type": "unavailable",
+        "title": "Request understood",
+        "description": "I understood that you need help with accommodation, but live city results are not available yet. No lookup or action has been performed.",
+        "details": [
+          "Need: accommodation",
+          "City services not connected"
+        ],
+        "places": [],
+        "status": "service_not_configured",
+        "source": null,
+        "understanding": {
+          "primary_intent": "accommodation",
+          "secondary_intents": [],
+          "language": null,
+          "city": "Bengaluru",
+          "area": "Whitefield",
+          "landmark": null,
+          "origin": null,
+          "destination": null,
+          "exact_location": null,
+          "report_id": null,
+          "budget": {
+            "amount": 2200.0,
+            "currency": "INR",
+            "raw_text": "no more than Rs 2200",
+            "constraint": null
+          },
+          "time_constraint": null,
+          "duration": null,
+          "transport_preference": null,
+          "preferences": [],
+          "accessibility_constraints": [],
+          "civic_category": null,
+          "missing_information": [],
+          "entities": [
+            {
+              "type": "area",
+              "value": "Whitefield",
+              "evidence": "near Whitefield"
+            },
+            {
+              "type": "budget",
+              "value": "2200.0",
+              "evidence": "no more than Rs 2200"
+            },
+            {
+              "type": "currency",
+              "value": "INR",
+              "evidence": "Rs"
+            }
+          ],
+          "validation_warnings": [],
+          "original_text": "A room near Whitefield, no more than Rs 2200.",
+          "action": null,
+          "method": "groq",
+          "clarification_needed": false,
+          "suggested_service_handler": "accommodation_service",
+          "processing_status": "understood"
+        },
+        "interpretation_status": "understood"
+      },
+      "raw_extraction": {
+        "primary_intent": "accommodation",
+        "secondary_intents": [],
+        "entities": [
+          {
+            "type": "area",
+            "value": "Whitefield",
+            "evidence": "near Whitefield"
+          },
+          {
+            "type": "budget",
+            "value": "2200",
+            "evidence": "no more than Rs 2200"
+          },
+          {
+            "type": "currency",
+            "value": "INR",
+            "evidence": "Rs"
+          }
+        ]
+      },
+      "score": {
+        "primary_correct": true,
+        "secondary_correct": true,
+        "required_entities": {
+          "area|landmark": true,
+          "budget.amount": true,
+          "budget.currency": true
+        },
+        "missing_explicit_entities": [],
+        "clarification_correct": true,
+        "unsupported_or_ungrounded_entities_rejected": 0,
+        "passed": true
+      }
+    },
+    {
+      "model": "openai/gpt-oss-120b",
+      "case_id": "07",
+      "core": false,
+      "state": "completed",
+      "seconds": 1.1810318999923766,
+      "response": {
+        "type": "unavailable",
+        "title": "Request understood",
+        "description": "I understood that you need help with accommodation, but live city results are not available yet. No lookup or action has been performed.",
+        "details": [
+          "Need: accommodation",
+          "City services not connected"
+        ],
+        "places": [],
+        "status": "service_not_configured",
+        "source": null,
+        "understanding": {
+          "primary_intent": "accommodation",
+          "secondary_intents": [],
+          "language": null,
+          "city": "Bengaluru",
+          "area": null,
+          "landmark": null,
+          "origin": null,
+          "destination": null,
+          "exact_location": null,
+          "report_id": null,
+          "budget": null,
+          "time_constraint": null,
+          "duration": null,
+          "transport_preference": null,
+          "preferences": [],
+          "accessibility_constraints": [],
+          "civic_category": null,
+          "missing_information": [],
+          "entities": [],
+          "validation_warnings": [
+            {
+              "path": "entities.0.evidence",
+              "code": "ungrounded_evidence"
+            },
+            {
+              "path": "entities.1.evidence",
+              "code": "ungrounded_evidence"
+            },
+            {
+              "path": "entities.2.evidence",
+              "code": "ungrounded_evidence"
+            }
+          ],
+          "original_text": "A room near Whitefield, no more than Rs 2200.",
+          "action": null,
+          "method": "groq",
+          "clarification_needed": false,
+          "suggested_service_handler": "accommodation_service",
+          "processing_status": "understood"
+        },
+        "interpretation_status": "understood"
+      },
+      "raw_extraction": {
+        "primary_intent": "accommodation",
+        "secondary_intents": [],
+        "entities": [
+          {
+            "type": "area",
+            "value": "Whitefield",
+            "evidence": "\"A room near Whitefield\""
+          },
+          {
+            "type": "budget",
+            "value": "2200",
+            "evidence": "\"no more than Rs 2200\""
+          },
+          {
+            "type": "currency",
+            "value": "INR",
+            "evidence": "\"Rs 2200\""
+          }
+        ]
+      },
+      "score": {
+        "primary_correct": true,
+        "secondary_correct": true,
+        "required_entities": {
+          "area|landmark": false,
+          "budget.amount": false,
+          "budget.currency": false
+        },
+        "missing_explicit_entities": [
+          "area|landmark",
+          "budget.amount",
+          "budget.currency"
+        ],
+        "clarification_correct": true,
+        "unsupported_or_ungrounded_entities_rejected": 3,
+        "passed": false
+      }
+    },
+    {
+      "model": "openai/gpt-oss-20b",
+      "case_id": "08",
+      "core": false,
+      "state": "completed",
+      "seconds": 1.0565408999973442,
+      "response": {
+        "type": "unavailable",
+        "title": "Request understood",
+        "description": "I understood that you need help with accommodation, but live city results are not available yet. No lookup or action has been performed.",
+        "details": [
+          "Need: accommodation",
+          "City services not connected"
+        ],
+        "places": [],
+        "status": "service_not_configured",
+        "source": null,
+        "understanding": {
+          "primary_intent": "accommodation",
+          "secondary_intents": [],
+          "language": null,
+          "city": "Bengaluru",
+          "area": null,
+          "landmark": null,
+          "origin": null,
+          "destination": null,
+          "exact_location": null,
+          "report_id": null,
+          "budget": null,
+          "time_constraint": null,
+          "duration": null,
+          "transport_preference": null,
+          "preferences": [],
+          "accessibility_constraints": [],
+          "civic_category": null,
+          "missing_information": [],
+          "entities": [],
+          "validation_warnings": [
+            {
+              "path": "entities.0.evidence",
+              "code": "ungrounded_evidence"
+            },
+            {
+              "path": "entities.1.evidence",
+              "code": "ungrounded_evidence"
+            },
+            {
+              "path": "entities.2.evidence",
+              "code": "ungrounded_evidence"
+            }
+          ],
+          "original_text": "I need a wheelchair accessible hotel in Koramangala.",
+          "action": null,
+          "method": "groq",
+          "clarification_needed": false,
+          "suggested_service_handler": "accommodation_service",
+          "processing_status": "understood"
+        },
+        "interpretation_status": "understood"
+      },
+      "raw_extraction": {
+        "primary_intent": "accommodation",
+        "secondary_intents": [],
+        "entities": [
+          {
+            "type": "city",
+            "value": "Bengaluru",
+            "evidence": "\"city\": \"Bengaluru\""
+          },
+          {
+            "type": "area",
+            "value": "Koramangala",
+            "evidence": "\"I need a wheelchair accessible hotel in Koramangala.\""
+          },
+          {
+            "type": "accessibility",
+            "value": "wheelchair accessible",
+            "evidence": "\"wheelchair accessible\""
+          }
+        ]
+      },
+      "score": {
+        "primary_correct": true,
+        "secondary_correct": true,
+        "required_entities": {
+          "area|landmark": false,
+          "accessibility_constraints": false
+        },
+        "missing_explicit_entities": [
+          "area|landmark",
+          "accessibility_constraints"
+        ],
+        "clarification_correct": true,
+        "unsupported_or_ungrounded_entities_rejected": 3,
+        "passed": false
+      }
+    },
+    {
+      "model": "openai/gpt-oss-120b",
+      "case_id": "08",
+      "core": false,
+      "state": "completed",
+      "seconds": 1.6213437999831513,
+      "response": {
+        "type": "unavailable",
+        "title": "Request understood",
+        "description": "I understood that you need help with accommodation, but live city results are not available yet. No lookup or action has been performed.",
+        "details": [
+          "Need: accommodation",
+          "City services not connected"
+        ],
+        "places": [],
+        "status": "service_not_configured",
+        "source": null,
+        "understanding": {
+          "primary_intent": "accommodation",
+          "secondary_intents": [],
+          "language": null,
+          "city": "Bengaluru",
+          "area": null,
+          "landmark": null,
+          "origin": null,
+          "destination": null,
+          "exact_location": null,
+          "report_id": null,
+          "budget": null,
+          "time_constraint": null,
+          "duration": null,
+          "transport_preference": null,
+          "preferences": [],
+          "accessibility_constraints": [],
+          "civic_category": null,
+          "missing_information": [],
+          "entities": [],
+          "validation_warnings": [
+            {
+              "path": "entities.0.evidence",
+              "code": "ungrounded_evidence"
+            },
+            {
+              "path": "entities.1.evidence",
+              "code": "ungrounded_evidence"
+            },
+            {
+              "path": "entities.2.evidence",
+              "code": "ungrounded_evidence"
+            }
+          ],
+          "original_text": "I need a wheelchair accessible hotel in Koramangala.",
+          "action": null,
+          "method": "groq",
+          "clarification_needed": false,
+          "suggested_service_handler": "accommodation_service",
+          "processing_status": "understood"
+        },
+        "interpretation_status": "understood"
+      },
+      "raw_extraction": {
+        "primary_intent": "accommodation",
+        "secondary_intents": [],
+        "entities": [
+          {
+            "type": "area",
+            "value": "Koramangala",
+            "evidence": "\"I need a wheelchair accessible hotel in Koramangala.\""
+          },
+          {
+            "type": "accessibility",
+            "value": "wheelchair",
+            "evidence": "\"wheelchair accessible hotel\""
+          },
+          {
+            "type": "preference",
+            "value": "hotel",
+            "evidence": "\"hotel\""
+          }
+        ]
+      },
+      "score": {
+        "primary_correct": true,
+        "secondary_correct": true,
+        "required_entities": {
+          "area|landmark": false,
+          "accessibility_constraints": false
+        },
+        "missing_explicit_entities": [
+          "area|landmark",
+          "accessibility_constraints"
+        ],
+        "clarification_correct": true,
+        "unsupported_or_ungrounded_entities_rejected": 3,
+        "passed": false
+      }
+    },
+    {
+      "model": "openai/gpt-oss-20b",
+      "case_id": "09",
+      "core": false,
+      "state": "completed",
+      "seconds": 1.1049700000148732,
+      "response": {
+        "type": "unavailable",
+        "title": "Intent understanding unavailable",
+        "description": "The intent provider could not return a valid interpretation. Please try again.",
+        "details": [
+          "Bengaluru only",
+          "Live results unavailable"
+        ],
+        "places": [],
+        "status": "intent_provider_error",
+        "source": null,
+        "interpretation_status": "provider_error"
+      },
+      "raw_extraction": null,
+      "score": {
+        "primary_correct": false,
+        "secondary_correct": true,
+        "required_entities": {
+          "area|landmark": false,
+          "preferences": false
+        },
+        "missing_explicit_entities": [
+          "area|landmark",
+          "preferences"
+        ],
+        "clarification_correct": true,
+        "unsupported_or_ungrounded_entities_rejected": 0,
+        "passed": false
+      }
+    },
+    {
+      "model": "openai/gpt-oss-120b",
+      "case_id": "09",
+      "core": false,
+      "state": "completed",
+      "seconds": 1.057525300013367,
+      "response": {
+        "type": "unavailable",
+        "title": "Request understood",
+        "description": "I understood that you need help with food places, but live city results are not available yet. No lookup or action has been performed.",
+        "details": [
+          "Need: food places",
+          "City services not connected"
+        ],
+        "places": [],
+        "status": "service_not_configured",
+        "source": null,
+        "understanding": {
+          "primary_intent": "food_places",
+          "secondary_intents": [],
+          "language": null,
+          "city": "Bengaluru",
+          "area": "Jayanagar",
+          "landmark": null,
+          "origin": null,
+          "destination": null,
+          "exact_location": null,
+          "report_id": null,
+          "budget": null,
+          "time_constraint": null,
+          "duration": null,
+          "transport_preference": null,
+          "preferences": [
+            "vegetarian"
+          ],
+          "accessibility_constraints": [],
+          "civic_category": null,
+          "missing_information": [],
+          "entities": [
+            {
+              "type": "area",
+              "value": "Jayanagar",
+              "evidence": "Find a vegetarian restaurant near Jayanagar"
+            },
+            {
+              "type": "preference",
+              "value": "vegetarian",
+              "evidence": "Find a vegetarian restaurant near Jayanagar"
+            }
+          ],
+          "validation_warnings": [],
+          "original_text": "Find a vegetarian restaurant near Jayanagar.",
+          "action": null,
+          "method": "groq",
+          "clarification_needed": false,
+          "suggested_service_handler": "places_service",
+          "processing_status": "understood"
+        },
+        "interpretation_status": "understood"
+      },
+      "raw_extraction": {
+        "primary_intent": "food_places",
+        "secondary_intents": [],
+        "entities": [
+          {
+            "type": "area",
+            "value": "Jayanagar",
+            "evidence": "\"Find a vegetarian restaurant near Jayanagar\""
+          },
+          {
+            "type": "preference",
+            "value": "vegetarian",
+            "evidence": "\"Find a vegetarian restaurant near Jayanagar\""
+          }
+        ]
+      },
+      "score": {
+        "primary_correct": true,
+        "secondary_correct": true,
+        "required_entities": {
+          "area|landmark": true,
+          "preferences": true
+        },
+        "missing_explicit_entities": [],
+        "clarification_correct": true,
+        "unsupported_or_ungrounded_entities_rejected": 0,
+        "passed": true
+      }
+    },
+    {
+      "model": "openai/gpt-oss-20b",
+      "case_id": "10",
+      "core": false,
+      "state": "completed",
+      "seconds": 1.2037839999829885,
+      "response": {
+        "type": "unavailable",
+        "title": "Request understood",
+        "description": "I understood that you need help with places services, but live city results are not available yet. No lookup or action has been performed.",
+        "details": [
+          "Need: places services",
+          "City services not connected"
+        ],
+        "places": [],
+        "status": "service_not_configured",
+        "source": null,
+        "understanding": {
+          "primary_intent": "places_services",
+          "secondary_intents": [],
+          "language": null,
+          "city": "Bengaluru",
+          "area": null,
+          "landmark": "MG Road",
+          "origin": null,
+          "destination": null,
+          "exact_location": null,
+          "report_id": null,
+          "budget": null,
+          "time_constraint": null,
+          "duration": null,
+          "transport_preference": null,
+          "preferences": [],
+          "accessibility_constraints": [],
+          "civic_category": null,
+          "missing_information": [],
+          "entities": [
+            {
+              "type": "city",
+              "value": "Bengaluru",
+              "evidence": "Bengaluru"
+            },
+            {
+              "type": "landmark",
+              "value": "MG Road",
+              "evidence": "MG Road"
+            }
+          ],
+          "validation_warnings": [],
+          "original_text": "Is there a pharmacy around MG Road?",
+          "action": null,
+          "method": "groq",
+          "clarification_needed": false,
+          "suggested_service_handler": "places_service",
+          "processing_status": "understood"
+        },
+        "interpretation_status": "understood"
+      },
+      "raw_extraction": {
+        "primary_intent": "places_services",
+        "secondary_intents": [],
+        "entities": [
+          {
+            "type": "city",
+            "value": "Bengaluru",
+            "evidence": "city: \"Bengaluru\""
+          },
+          {
+            "type": "landmark",
+            "value": "MG Road",
+            "evidence": "MG Road"
+          }
+        ]
+      },
+      "score": {
+        "primary_correct": true,
+        "secondary_correct": true,
+        "required_entities": {
+          "area|landmark": true
+        },
+        "missing_explicit_entities": [],
+        "clarification_correct": true,
+        "unsupported_or_ungrounded_entities_rejected": 0,
+        "passed": true
+      }
+    },
+    {
+      "model": "openai/gpt-oss-120b",
+      "case_id": "10",
+      "core": false,
+      "state": "completed",
+      "seconds": 1.3142838000203483,
+      "response": {
+        "type": "unavailable",
+        "title": "Request understood",
+        "description": "I understood that you need help with places services, but live city results are not available yet. No lookup or action has been performed.",
+        "details": [
+          "Need: places services",
+          "City services not connected"
+        ],
+        "places": [],
+        "status": "service_not_configured",
+        "source": null,
+        "understanding": {
+          "primary_intent": "places_services",
+          "secondary_intents": [],
+          "language": null,
+          "city": "Bengaluru",
+          "area": null,
+          "landmark": "MG Road",
+          "origin": null,
+          "destination": null,
+          "exact_location": null,
+          "report_id": null,
+          "budget": null,
+          "time_constraint": null,
+          "duration": null,
+          "transport_preference": null,
+          "preferences": [],
+          "accessibility_constraints": [],
+          "civic_category": null,
+          "missing_information": [],
+          "entities": [
+            {
+              "type": "landmark",
+              "value": "MG Road",
+              "evidence": "Is there a pharmacy around MG Road?"
+            }
+          ],
+          "validation_warnings": [],
+          "original_text": "Is there a pharmacy around MG Road?",
+          "action": null,
+          "method": "groq",
+          "clarification_needed": false,
+          "suggested_service_handler": "places_service",
+          "processing_status": "understood"
+        },
+        "interpretation_status": "understood"
+      },
+      "raw_extraction": {
+        "primary_intent": "places_services",
+        "secondary_intents": [],
+        "entities": [
+          {
+            "type": "landmark",
+            "value": "MG Road",
+            "evidence": "\"Is there a pharmacy around MG Road?\""
+          }
+        ]
+      },
+      "score": {
+        "primary_correct": true,
+        "secondary_correct": true,
+        "required_entities": {
+          "area|landmark": true
+        },
+        "missing_explicit_entities": [],
+        "clarification_correct": true,
+        "unsupported_or_ungrounded_entities_rejected": 0,
+        "passed": true
+      }
+    },
+    {
+      "model": "openai/gpt-oss-20b",
+      "case_id": "11",
+      "core": false,
+      "state": "completed",
+      "seconds": 0.6884946000063792,
+      "response": {
+        "type": "guide",
+        "title": "A little more information is needed",
+        "description": "Please tell me your starting point, your destination. No city lookup or action has been performed.",
+        "details": [
+          "Need: transport",
+          "City services not connected"
+        ],
+        "places": [],
+        "status": "clarification_required",
+        "source": null,
+        "understanding": {
+          "primary_intent": "transport",
+          "secondary_intents": [],
+          "language": null,
+          "city": "Bengaluru",
+          "area": null,
+          "landmark": null,
+          "origin": null,
+          "destination": null,
+          "exact_location": null,
+          "report_id": null,
+          "budget": null,
+          "time_constraint": null,
+          "duration": null,
+          "transport_preference": null,
+          "preferences": [],
+          "accessibility_constraints": [],
+          "civic_category": null,
+          "missing_information": [
+            "origin",
+            "destination"
+          ],
+          "entities": [],
+          "validation_warnings": [],
+          "original_text": "I need directions from Indiranagar to Cubbon Park on the metro.",
+          "action": null,
+          "method": "groq",
+          "clarification_needed": true,
+          "suggested_service_handler": "transport_service",
+          "processing_status": "clarification_required"
+        },
+        "interpretation_status": "clarification_required"
+      },
+      "raw_extraction": {
+        "primary_intent": "transport",
+        "secondary_intents": [],
+        "entities": []
+      },
+      "score": {
+        "primary_correct": true,
+        "secondary_correct": true,
+        "required_entities": {
+          "origin": false,
+          "destination": false,
+          "transport_preference": false
+        },
+        "missing_explicit_entities": [
+          "origin",
+          "destination",
+          "transport_preference"
+        ],
+        "clarification_correct": false,
+        "unsupported_or_ungrounded_entities_rejected": 0,
+        "passed": false
+      }
+    },
+    {
+      "model": "openai/gpt-oss-120b",
+      "case_id": "11",
+      "core": false,
+      "state": "completed",
+      "seconds": 1.0101318999950308,
+      "response": {
+        "type": "unavailable",
+        "title": "Request understood",
+        "description": "I understood that you need help with transport, but live city results are not available yet. No lookup or action has been performed.",
+        "details": [
+          "Need: transport",
+          "City services not connected"
+        ],
+        "places": [],
+        "status": "service_not_configured",
+        "source": null,
+        "understanding": {
+          "primary_intent": "transport",
+          "secondary_intents": [],
+          "language": null,
+          "city": "Bengaluru",
+          "area": null,
+          "landmark": null,
+          "origin": "Indiranagar",
+          "destination": "Cubbon Park",
+          "exact_location": null,
+          "report_id": null,
+          "budget": null,
+          "time_constraint": null,
+          "duration": null,
+          "transport_preference": "metro",
+          "preferences": [
+            "metro"
+          ],
+          "accessibility_constraints": [],
+          "civic_category": null,
+          "missing_information": [],
+          "entities": [
+            {
+              "type": "origin",
+              "value": "Indiranagar",
+              "evidence": "directions from Indiranagar"
+            },
+            {
+              "type": "destination",
+              "value": "Cubbon Park",
+              "evidence": "to Cubbon Park"
+            },
+            {
+              "type": "transport_preference",
+              "value": "metro",
+              "evidence": "on the metro"
+            }
+          ],
+          "validation_warnings": [],
+          "original_text": "I need directions from Indiranagar to Cubbon Park on the metro.",
+          "action": null,
+          "method": "groq",
+          "clarification_needed": false,
+          "suggested_service_handler": "transport_service",
+          "processing_status": "understood"
+        },
+        "interpretation_status": "understood"
+      },
+      "raw_extraction": {
+        "primary_intent": "transport",
+        "secondary_intents": [],
+        "entities": [
+          {
+            "type": "origin",
+            "value": "Indiranagar",
+            "evidence": "\"directions from Indiranagar\""
+          },
+          {
+            "type": "destination",
+            "value": "Cubbon Park",
+            "evidence": "\"to Cubbon Park\""
+          },
+          {
+            "type": "transport_preference",
+            "value": "metro",
+            "evidence": "\"on the metro\""
+          }
+        ]
+      },
+      "score": {
+        "primary_correct": true,
+        "secondary_correct": true,
+        "required_entities": {
+          "origin": true,
+          "destination": true,
+          "transport_preference": true
+        },
+        "missing_explicit_entities": [],
+        "clarification_correct": true,
+        "unsupported_or_ungrounded_entities_rejected": 0,
+        "passed": true
+      }
+    },
+    {
+      "model": "openai/gpt-oss-20b",
+      "case_id": "12",
+      "core": false,
+      "state": "completed",
+      "seconds": 0.6806776000012178,
+      "response": {
+        "type": "unavailable",
+        "title": "Request understood",
+        "description": "I understood that you need help with transport, but live city results are not available yet. No lookup or action has been performed.",
+        "details": [
+          "Need: transport",
+          "City services not connected"
+        ],
+        "places": [],
+        "status": "service_not_configured",
+        "source": null,
+        "understanding": {
+          "primary_intent": "transport",
+          "secondary_intents": [],
+          "language": null,
+          "city": "Bengaluru",
+          "area": null,
+          "landmark": null,
+          "origin": "Silk Board",
+          "destination": "Electronic City",
+          "exact_location": null,
+          "report_id": null,
+          "budget": null,
+          "time_constraint": "tonight",
+          "duration": null,
+          "transport_preference": null,
+          "preferences": [],
+          "accessibility_constraints": [],
+          "civic_category": null,
+          "missing_information": [],
+          "entities": [
+            {
+              "type": "origin",
+              "value": "Silk Board",
+              "evidence": "from Silk Board"
+            },
+            {
+              "type": "destination",
+              "value": "Electronic City",
+              "evidence": "to Electronic City"
+            },
+            {
+              "type": "time",
+              "value": "tonight",
+              "evidence": "tonight"
+            }
+          ],
+          "validation_warnings": [],
+          "original_text": "Which bus can take me from Silk Board to Electronic City tonight?",
+          "action": null,
+          "method": "groq",
+          "clarification_needed": false,
+          "suggested_service_handler": "transport_service",
+          "processing_status": "understood"
+        },
+        "interpretation_status": "understood"
+      },
+      "raw_extraction": {
+        "primary_intent": "transport",
+        "secondary_intents": [],
+        "entities": [
+          {
+            "type": "origin",
+            "value": "Silk Board",
+            "evidence": "from Silk Board"
+          },
+          {
+            "type": "destination",
+            "value": "Electronic City",
+            "evidence": "to Electronic City"
+          },
+          {
+            "type": "time",
+            "value": "tonight",
+            "evidence": "tonight"
+          }
+        ]
+      },
+      "score": {
+        "primary_correct": true,
+        "secondary_correct": true,
+        "required_entities": {
+          "origin": true,
+          "destination": true,
+          "transport_preference": false,
+          "time_constraint": true
+        },
+        "missing_explicit_entities": [
+          "transport_preference"
+        ],
+        "clarification_correct": true,
+        "unsupported_or_ungrounded_entities_rejected": 0,
+        "passed": false
+      }
+    },
+    {
+      "model": "openai/gpt-oss-120b",
+      "case_id": "12",
+      "core": false,
+      "state": "completed",
+      "seconds": 1.1900377999991179,
+      "response": {
+        "type": "unavailable",
+        "title": "Request understood",
+        "description": "I understood that you need help with transport, but live city results are not available yet. No lookup or action has been performed.",
+        "details": [
+          "Need: transport",
+          "City services not connected"
+        ],
+        "places": [],
+        "status": "service_not_configured",
+        "source": null,
+        "understanding": {
+          "primary_intent": "transport",
+          "secondary_intents": [],
+          "language": null,
+          "city": "Bengaluru",
+          "area": null,
+          "landmark": null,
+          "origin": "Silk Board",
+          "destination": "Electronic City",
+          "exact_location": null,
+          "report_id": null,
+          "budget": null,
+          "time_constraint": "tonight",
+          "duration": null,
+          "transport_preference": "bus",
+          "preferences": [
+            "bus"
+          ],
+          "accessibility_constraints": [],
+          "civic_category": null,
+          "missing_information": [],
+          "entities": [
+            {
+              "type": "origin",
+              "value": "Silk Board",
+              "evidence": "from Silk Board"
+            },
+            {
+              "type": "destination",
+              "value": "Electronic City",
+              "evidence": "to Electronic City"
+            },
+            {
+              "type": "transport_preference",
+              "value": "bus",
+              "evidence": "Which bus can take me"
+            },
+            {
+              "type": "time",
+              "value": "tonight",
+              "evidence": "tonight"
+            }
+          ],
+          "validation_warnings": [],
+          "original_text": "Which bus can take me from Silk Board to Electronic City tonight?",
+          "action": null,
+          "method": "groq",
+          "clarification_needed": false,
+          "suggested_service_handler": "transport_service",
+          "processing_status": "understood"
+        },
+        "interpretation_status": "understood"
+      },
+      "raw_extraction": {
+        "primary_intent": "transport",
+        "secondary_intents": [],
+        "entities": [
+          {
+            "type": "origin",
+            "value": "Silk Board",
+            "evidence": "\"from Silk Board\""
+          },
+          {
+            "type": "destination",
+            "value": "Electronic City",
+            "evidence": "\"to Electronic City\""
+          },
+          {
+            "type": "transport_preference",
+            "value": "bus",
+            "evidence": "\"Which bus can take me\""
+          },
+          {
+            "type": "time",
+            "value": "tonight",
+            "evidence": "\"tonight\""
+          }
+        ]
+      },
+      "score": {
+        "primary_correct": true,
+        "secondary_correct": true,
+        "required_entities": {
+          "origin": true,
+          "destination": true,
+          "transport_preference": true,
+          "time_constraint": true
+        },
+        "missing_explicit_entities": [],
+        "clarification_correct": true,
+        "unsupported_or_ungrounded_entities_rejected": 0,
+        "passed": true
+      }
+    },
+    {
+      "model": "openai/gpt-oss-20b",
+      "case_id": "13",
+      "core": false,
+      "state": "completed",
+      "seconds": 0.9515814000042155,
+      "response": {
+        "type": "guide",
+        "title": "A little more information is needed",
+        "description": "Please tell me your starting point. No city lookup or action has been performed.",
+        "details": [
+          "Need: transport",
+          "City services not connected"
+        ],
+        "places": [],
+        "status": "clarification_required",
+        "source": null,
+        "understanding": {
+          "primary_intent": "transport",
+          "secondary_intents": [],
+          "language": null,
+          "city": "Bengaluru",
+          "area": null,
+          "landmark": null,
+          "origin": null,
+          "destination": "railway station",
+          "exact_location": null,
+          "report_id": null,
+          "budget": null,
+          "time_constraint": null,
+          "duration": null,
+          "transport_preference": null,
+          "preferences": [],
+          "accessibility_constraints": [],
+          "civic_category": null,
+          "missing_information": [
+            "origin"
+          ],
+          "entities": [
+            {
+              "type": "destination",
+              "value": "railway station",
+              "evidence": "Take me to the railway station."
+            }
+          ],
+          "validation_warnings": [],
+          "original_text": "Take me to the railway station.",
+          "action": null,
+          "method": "groq",
+          "clarification_needed": true,
+          "suggested_service_handler": "transport_service",
+          "processing_status": "clarification_required"
+        },
+        "interpretation_status": "clarification_required"
+      },
+      "raw_extraction": {
+        "primary_intent": "transport",
+        "secondary_intents": [],
+        "entities": [
+          {
+            "type": "destination",
+            "value": "railway station",
+            "evidence": "Take me to the railway station."
+          }
+        ]
+      },
+      "score": {
+        "primary_correct": true,
+        "secondary_correct": true,
+        "required_entities": {
+          "destination": true,
+          "origin": true
+        },
+        "missing_explicit_entities": [],
+        "clarification_correct": true,
+        "unsupported_or_ungrounded_entities_rejected": 0,
+        "passed": true
+      }
+    },
+    {
+      "model": "openai/gpt-oss-120b",
+      "case_id": "13",
+      "core": false,
+      "state": "completed",
+      "seconds": 0.9919503999990411,
+      "response": {
+        "type": "guide",
+        "title": "A little more information is needed",
+        "description": "Please tell me your starting point. No city lookup or action has been performed.",
+        "details": [
+          "Need: transport",
+          "City services not connected"
+        ],
+        "places": [],
+        "status": "clarification_required",
+        "source": null,
+        "understanding": {
+          "primary_intent": "transport",
+          "secondary_intents": [],
+          "language": null,
+          "city": "Bengaluru",
+          "area": null,
+          "landmark": null,
+          "origin": null,
+          "destination": "railway station",
+          "exact_location": null,
+          "report_id": null,
+          "budget": null,
+          "time_constraint": null,
+          "duration": null,
+          "transport_preference": null,
+          "preferences": [],
+          "accessibility_constraints": [],
+          "civic_category": null,
+          "missing_information": [
+            "origin"
+          ],
+          "entities": [
+            {
+              "type": "destination",
+              "value": "railway station",
+              "evidence": "Take me to the railway station."
+            }
+          ],
+          "validation_warnings": [],
+          "original_text": "Take me to the railway station.",
+          "action": null,
+          "method": "groq",
+          "clarification_needed": true,
+          "suggested_service_handler": "transport_service",
+          "processing_status": "clarification_required"
+        },
+        "interpretation_status": "clarification_required"
+      },
+      "raw_extraction": {
+        "primary_intent": "transport",
+        "secondary_intents": [],
+        "entities": [
+          {
+            "type": "destination",
+            "value": "railway station",
+            "evidence": "\"Take me to the railway station.\""
+          }
+        ]
+      },
+      "score": {
+        "primary_correct": true,
+        "secondary_correct": true,
+        "required_entities": {
+          "destination": true,
+          "origin": true
+        },
+        "missing_explicit_entities": [],
+        "clarification_correct": true,
+        "unsupported_or_ungrounded_entities_rejected": 0,
+        "passed": true
+      }
+    },
+    {
+      "model": "openai/gpt-oss-20b",
+      "case_id": "14",
+      "core": false,
+      "state": "completed",
+      "seconds": 1.039794999989681,
+      "response": {
+        "type": "unavailable",
+        "title": "Request understood",
+        "description": "I understood that you need help with weather conditions, but live city results are not available yet. No lookup or action has been performed.",
+        "details": [
+          "Need: weather conditions",
+          "City services not connected"
+        ],
+        "places": [],
+        "status": "service_not_configured",
+        "source": null,
+        "understanding": {
+          "primary_intent": "weather_conditions",
+          "secondary_intents": [],
+          "language": null,
+          "city": "Bengaluru",
+          "area": null,
+          "landmark": null,
+          "origin": null,
+          "destination": null,
+          "exact_location": null,
+          "report_id": null,
+          "budget": null,
+          "time_constraint": null,
+          "duration": null,
+          "transport_preference": null,
+          "preferences": [],
+          "accessibility_constraints": [],
+          "civic_category": null,
+          "missing_information": [],
+          "entities": [
+            {
+              "type": "city",
+              "value": "Bengaluru",
+              "evidence": "Bengaluru"
+            }
+          ],
+          "validation_warnings": [],
+          "original_text": "Do I need an umbrella in Bengaluru tomorrow morning?",
+          "action": null,
+          "method": "groq",
+          "clarification_needed": false,
+          "suggested_service_handler": "weather_service",
+          "processing_status": "understood"
+        },
+        "interpretation_status": "understood"
+      },
+      "raw_extraction": {
+        "primary_intent": "weather_conditions",
+        "secondary_intents": [],
+        "entities": []
+      },
+      "score": {
+        "primary_correct": true,
+        "secondary_correct": true,
+        "required_entities": {
+          "city": true,
+          "time_constraint": false
+        },
+        "missing_explicit_entities": [
+          "time_constraint"
+        ],
+        "clarification_correct": true,
+        "unsupported_or_ungrounded_entities_rejected": 0,
+        "passed": false
+      }
+    },
+    {
+      "model": "openai/gpt-oss-120b",
+      "case_id": "14",
+      "core": false,
+      "state": "completed",
+      "seconds": 1.1748128000181168,
+      "response": {
+        "type": "unavailable",
+        "title": "Request understood",
+        "description": "I understood that you need help with weather conditions, but live city results are not available yet. No lookup or action has been performed.",
+        "details": [
+          "Need: weather conditions",
+          "City services not connected"
+        ],
+        "places": [],
+        "status": "service_not_configured",
+        "source": null,
+        "understanding": {
+          "primary_intent": "weather_conditions",
+          "secondary_intents": [],
+          "language": null,
+          "city": "Bengaluru",
+          "area": null,
+          "landmark": null,
+          "origin": null,
+          "destination": null,
+          "exact_location": null,
+          "report_id": null,
+          "budget": null,
+          "time_constraint": "tomorrow morning",
+          "duration": null,
+          "transport_preference": null,
+          "preferences": [],
+          "accessibility_constraints": [],
+          "civic_category": null,
+          "missing_information": [],
+          "entities": [
+            {
+              "type": "city",
+              "value": "Bengaluru",
+              "evidence": "Do I need an umbrella in Bengaluru tomorrow morning?"
+            },
+            {
+              "type": "time",
+              "value": "tomorrow morning",
+              "evidence": "tomorrow morning"
+            }
+          ],
+          "validation_warnings": [],
+          "original_text": "Do I need an umbrella in Bengaluru tomorrow morning?",
+          "action": null,
+          "method": "groq",
+          "clarification_needed": false,
+          "suggested_service_handler": "weather_service",
+          "processing_status": "understood"
+        },
+        "interpretation_status": "understood"
+      },
+      "raw_extraction": {
+        "primary_intent": "weather_conditions",
+        "secondary_intents": [],
+        "entities": [
+          {
+            "type": "city",
+            "value": "Bengaluru",
+            "evidence": "\"Do I need an umbrella in Bengaluru tomorrow morning?\""
+          },
+          {
+            "type": "time",
+            "value": "tomorrow morning",
+            "evidence": "\"tomorrow morning\""
+          }
+        ]
+      },
+      "score": {
+        "primary_correct": true,
+        "secondary_correct": true,
+        "required_entities": {
+          "city": true,
+          "time_constraint": true
+        },
+        "missing_explicit_entities": [],
+        "clarification_correct": true,
+        "unsupported_or_ungrounded_entities_rejected": 0,
+        "passed": true
+      }
+    },
+    {
+      "model": "openai/gpt-oss-20b",
+      "case_id": "15",
+      "core": false,
+      "state": "completed",
+      "seconds": 1.1038141000026371,
+      "response": {
+        "type": "unavailable",
+        "title": "Request understood",
+        "description": "I understood that you need help with weather conditions, but live city results are not available yet. No lookup or action has been performed.",
+        "details": [
+          "Need: weather conditions",
+          "City services not connected"
+        ],
+        "places": [],
+        "status": "service_not_configured",
+        "source": null,
+        "understanding": {
+          "primary_intent": "weather_conditions",
+          "secondary_intents": [],
+          "language": null,
+          "city": "Bengaluru",
+          "area": null,
+          "landmark": null,
+          "origin": null,
+          "destination": null,
+          "exact_location": null,
+          "report_id": null,
+          "budget": null,
+          "time_constraint": null,
+          "duration": null,
+          "transport_preference": null,
+          "preferences": [],
+          "accessibility_constraints": [],
+          "civic_category": null,
+          "missing_information": [],
+          "entities": [
+            {
+              "type": "city",
+              "value": "Bengaluru",
+              "evidence": "Bengaluru"
+            }
+          ],
+          "validation_warnings": [],
+          "original_text": "How hot is Bengaluru right now?",
+          "action": null,
+          "method": "groq",
+          "clarification_needed": false,
+          "suggested_service_handler": "weather_service",
+          "processing_status": "understood"
+        },
+        "interpretation_status": "understood"
+      },
+      "raw_extraction": {
+        "primary_intent": "weather_conditions",
+        "secondary_intents": [],
+        "entities": []
+      },
+      "score": {
+        "primary_correct": true,
+        "secondary_correct": true,
+        "required_entities": {
+          "city": true,
+          "time_constraint": false
+        },
+        "missing_explicit_entities": [
+          "time_constraint"
+        ],
+        "clarification_correct": true,
+        "unsupported_or_ungrounded_entities_rejected": 0,
+        "passed": false
+      }
+    },
+    {
+      "model": "openai/gpt-oss-120b",
+      "case_id": "15",
+      "core": false,
+      "state": "completed",
+      "seconds": 1.0074850000091828,
+      "response": {
+        "type": "unavailable",
+        "title": "Request understood",
+        "description": "I understood that you need help with weather conditions, but live city results are not available yet. No lookup or action has been performed.",
+        "details": [
+          "Need: weather conditions",
+          "City services not connected"
+        ],
+        "places": [],
+        "status": "service_not_configured",
+        "source": null,
+        "understanding": {
+          "primary_intent": "weather_conditions",
+          "secondary_intents": [],
+          "language": null,
+          "city": "Bengaluru",
+          "area": null,
+          "landmark": null,
+          "origin": null,
+          "destination": null,
+          "exact_location": null,
+          "report_id": null,
+          "budget": null,
+          "time_constraint": null,
+          "duration": null,
+          "transport_preference": null,
+          "preferences": [],
+          "accessibility_constraints": [],
+          "civic_category": null,
+          "missing_information": [],
+          "entities": [
+            {
+              "type": "city",
+              "value": "Bengaluru",
+              "evidence": "Bengaluru"
+            }
+          ],
+          "validation_warnings": [],
+          "original_text": "How hot is Bengaluru right now?",
+          "action": null,
+          "method": "groq",
+          "clarification_needed": false,
+          "suggested_service_handler": "weather_service",
+          "processing_status": "understood"
+        },
+        "interpretation_status": "understood"
+      },
+      "raw_extraction": {
+        "primary_intent": "weather_conditions",
+        "secondary_intents": [],
+        "entities": []
+      },
+      "score": {
+        "primary_correct": true,
+        "secondary_correct": true,
+        "required_entities": {
+          "city": true,
+          "time_constraint": false
+        },
+        "missing_explicit_entities": [
+          "time_constraint"
+        ],
+        "clarification_correct": true,
+        "unsupported_or_ungrounded_entities_rejected": 0,
+        "passed": false
+      }
+    },
+    {
+      "model": "openai/gpt-oss-20b",
+      "case_id": "16",
+      "core": false,
+      "state": "completed",
+      "seconds": 1.106683799996972,
+      "response": {
+        "type": "guide",
+        "title": "A little more information is needed",
+        "description": "Please tell me the exact street, address or landmark. No city lookup or action has been performed.",
+        "details": [
+          "Need: civic report",
+          "City services not connected"
+        ],
+        "places": [],
+        "status": "clarification_required",
+        "source": null,
+        "understanding": {
+          "primary_intent": "civic_report",
+          "secondary_intents": [],
+          "language": null,
+          "city": "Bengaluru",
+          "area": null,
+          "landmark": "Lalbagh main gate",
+          "origin": null,
+          "destination": null,
+          "exact_location": null,
+          "report_id": null,
+          "budget": null,
+          "time_constraint": null,
+          "duration": null,
+          "transport_preference": null,
+          "preferences": [],
+          "accessibility_constraints": [],
+          "civic_category": "garbage",
+          "missing_information": [
+            "exact_location"
+          ],
+          "entities": [
+            {
+              "type": "civic_category",
+              "value": "garbage",
+              "evidence": "Garbage has piled up beside Lalbagh main gate."
+            },
+            {
+              "type": "landmark",
+              "value": "Lalbagh main gate",
+              "evidence": "beside Lalbagh main gate"
+            }
+          ],
+          "validation_warnings": [],
+          "original_text": "Garbage has piled up beside Lalbagh main gate.",
+          "action": null,
+          "method": "groq",
+          "clarification_needed": true,
+          "suggested_service_handler": "report_service",
+          "processing_status": "clarification_required"
+        },
+        "interpretation_status": "clarification_required"
+      },
+      "raw_extraction": {
+        "primary_intent": "civic_report",
+        "secondary_intents": [],
+        "entities": [
+          {
+            "type": "civic_category",
+            "value": "garbage",
+            "evidence": "Garbage has piled up beside Lalbagh main gate."
+          },
+          {
+            "type": "landmark",
+            "value": "Lalbagh main gate",
+            "evidence": "beside Lalbagh main gate"
+          }
+        ]
+      },
+      "score": {
+        "primary_correct": true,
+        "secondary_correct": true,
+        "required_entities": {
+          "civic_category": true,
+          "exact_location": false
+        },
+        "missing_explicit_entities": [
+          "exact_location"
+        ],
+        "clarification_correct": false,
+        "unsupported_or_ungrounded_entities_rejected": 0,
+        "passed": false
+      }
+    },
+    {
+      "model": "openai/gpt-oss-120b",
+      "case_id": "16",
+      "core": false,
+      "state": "completed",
+      "seconds": 0.9556838999851607,
+      "response": {
+        "type": "guide",
+        "title": "A little more information is needed",
+        "description": "Please tell me the exact street, address or landmark. No city lookup or action has been performed.",
+        "details": [
+          "Need: civic report",
+          "City services not connected"
+        ],
+        "places": [],
+        "status": "clarification_required",
+        "source": null,
+        "understanding": {
+          "primary_intent": "civic_report",
+          "secondary_intents": [],
+          "language": null,
+          "city": "Bengaluru",
+          "area": null,
+          "landmark": null,
+          "origin": null,
+          "destination": null,
+          "exact_location": null,
+          "report_id": null,
+          "budget": null,
+          "time_constraint": null,
+          "duration": null,
+          "transport_preference": null,
+          "preferences": [],
+          "accessibility_constraints": [],
+          "civic_category": "garbage",
+          "missing_information": [
+            "exact_location"
+          ],
+          "entities": [
+            {
+              "type": "civic_category",
+              "value": "garbage",
+              "evidence": "Garbage has piled up beside Lalbagh main gate."
+            }
+          ],
+          "validation_warnings": [],
+          "original_text": "Garbage has piled up beside Lalbagh main gate.",
+          "action": null,
+          "method": "groq",
+          "clarification_needed": true,
+          "suggested_service_handler": "report_service",
+          "processing_status": "clarification_required"
+        },
+        "interpretation_status": "clarification_required"
+      },
+      "raw_extraction": {
+        "primary_intent": "civic_report",
+        "secondary_intents": [],
+        "entities": [
+          {
+            "type": "civic_category",
+            "value": "garbage",
+            "evidence": "\"Garbage has piled up beside Lalbagh main gate.\""
+          }
+        ]
+      },
+      "score": {
+        "primary_correct": true,
+        "secondary_correct": true,
+        "required_entities": {
+          "civic_category": true,
+          "exact_location": false
+        },
+        "missing_explicit_entities": [
+          "exact_location"
+        ],
+        "clarification_correct": false,
+        "unsupported_or_ungrounded_entities_rejected": 0,
+        "passed": false
+      }
+    },
+    {
+      "model": "openai/gpt-oss-20b",
+      "case_id": "17",
+      "core": false,
+      "state": "completed",
+      "seconds": 1.2211177999852225,
+      "response": {
+        "type": "unavailable",
+        "title": "Request understood",
+        "description": "I understood that you need help with civic report, but live city results are not available yet. No lookup or action has been performed.",
+        "details": [
+          "Need: civic report",
+          "City services not connected"
+        ],
+        "places": [],
+        "status": "service_not_configured",
+        "source": null,
+        "understanding": {
+          "primary_intent": "civic_report",
+          "secondary_intents": [],
+          "language": null,
+          "city": "Bengaluru",
+          "area": null,
+          "landmark": null,
+          "origin": null,
+          "destination": null,
+          "exact_location": "12 Church Street",
+          "report_id": null,
+          "budget": null,
+          "time_constraint": null,
+          "duration": null,
+          "transport_preference": null,
+          "preferences": [],
+          "accessibility_constraints": [],
+          "civic_category": "streetlight",
+          "missing_information": [],
+          "entities": [
+            {
+              "type": "exact_location",
+              "value": "12 Church Street",
+              "evidence": "The streetlight at 12 Church Street is broken."
+            },
+            {
+              "type": "civic_category",
+              "value": "streetlight",
+              "evidence": "The streetlight at 12 Church Street is broken."
+            }
+          ],
+          "validation_warnings": [],
+          "original_text": "The streetlight at 12 Church Street is broken.",
+          "action": null,
+          "method": "groq",
+          "clarification_needed": false,
+          "suggested_service_handler": "report_service",
+          "processing_status": "understood"
+        },
+        "interpretation_status": "understood"
+      },
+      "raw_extraction": {
+        "primary_intent": "civic_report",
+        "secondary_intents": [],
+        "entities": [
+          {
+            "type": "exact_location",
+            "value": "12 Church Street",
+            "evidence": "The streetlight at 12 Church Street is broken."
+          },
+          {
+            "type": "civic_category",
+            "value": "streetlight",
+            "evidence": "The streetlight at 12 Church Street is broken."
+          }
+        ]
+      },
+      "score": {
+        "primary_correct": true,
+        "secondary_correct": true,
+        "required_entities": {
+          "civic_category": true,
+          "exact_location": true
+        },
+        "missing_explicit_entities": [],
+        "clarification_correct": true,
+        "unsupported_or_ungrounded_entities_rejected": 0,
+        "passed": true
+      }
+    },
+    {
+      "model": "openai/gpt-oss-120b",
+      "case_id": "17",
+      "core": false,
+      "state": "completed",
+      "seconds": 1.0318723999953363,
+      "response": {
+        "type": "unavailable",
+        "title": "Request understood",
+        "description": "I understood that you need help with civic report, but live city results are not available yet. No lookup or action has been performed.",
+        "details": [
+          "Need: civic report",
+          "City services not connected"
+        ],
+        "places": [],
+        "status": "service_not_configured",
+        "source": null,
+        "understanding": {
+          "primary_intent": "civic_report",
+          "secondary_intents": [],
+          "language": null,
+          "city": "Bengaluru",
+          "area": null,
+          "landmark": null,
+          "origin": null,
+          "destination": null,
+          "exact_location": "12 Church Street",
+          "report_id": null,
+          "budget": null,
+          "time_constraint": null,
+          "duration": null,
+          "transport_preference": null,
+          "preferences": [],
+          "accessibility_constraints": [],
+          "civic_category": "streetlight",
+          "missing_information": [],
+          "entities": [
+            {
+              "type": "civic_category",
+              "value": "streetlight",
+              "evidence": "The streetlight at 12 Church Street is broken."
+            },
+            {
+              "type": "exact_location",
+              "value": "12 Church Street",
+              "evidence": "The streetlight at 12 Church Street is broken."
+            }
+          ],
+          "validation_warnings": [],
+          "original_text": "The streetlight at 12 Church Street is broken.",
+          "action": null,
+          "method": "groq",
+          "clarification_needed": false,
+          "suggested_service_handler": "report_service",
+          "processing_status": "understood"
+        },
+        "interpretation_status": "understood"
+      },
+      "raw_extraction": {
+        "primary_intent": "civic_report",
+        "secondary_intents": [],
+        "entities": [
+          {
+            "type": "civic_category",
+            "value": "streetlight",
+            "evidence": "\"The streetlight at 12 Church Street is broken.\""
+          },
+          {
+            "type": "exact_location",
+            "value": "12 Church Street",
+            "evidence": "\"The streetlight at 12 Church Street is broken.\""
+          }
+        ]
+      },
+      "score": {
+        "primary_correct": true,
+        "secondary_correct": true,
+        "required_entities": {
+          "civic_category": true,
+          "exact_location": true
+        },
+        "missing_explicit_entities": [],
+        "clarification_correct": true,
+        "unsupported_or_ungrounded_entities_rejected": 0,
+        "passed": true
+      }
+    },
+    {
+      "model": "openai/gpt-oss-20b",
+      "case_id": "18",
+      "core": false,
+      "state": "completed",
+      "seconds": 0.6239182999997865,
+      "response": {
+        "type": "unavailable",
+        "title": "Request understood",
+        "description": "I understood that you need help with civic lookup, but live city results are not available yet. No lookup or action has been performed.",
+        "details": [
+          "Need: civic lookup",
+          "City services not connected"
+        ],
+        "places": [],
+        "status": "service_not_configured",
+        "source": null,
+        "understanding": {
+          "primary_intent": "civic_lookup",
+          "secondary_intents": [],
+          "language": null,
+          "city": "Bengaluru",
+          "area": null,
+          "landmark": null,
+          "origin": null,
+          "destination": null,
+          "exact_location": null,
+          "report_id": null,
+          "budget": null,
+          "time_constraint": null,
+          "duration": null,
+          "transport_preference": null,
+          "preferences": [],
+          "accessibility_constraints": [],
+          "civic_category": null,
+          "missing_information": [],
+          "entities": [],
+          "validation_warnings": [],
+          "original_text": "Show reported potholes around HSR Layout.",
+          "action": null,
+          "method": "groq",
+          "clarification_needed": false,
+          "suggested_service_handler": "civic_records_service",
+          "processing_status": "understood"
+        },
+        "interpretation_status": "understood"
+      },
+      "raw_extraction": {
+        "primary_intent": "civic_lookup",
+        "secondary_intents": [],
+        "entities": []
+      },
+      "score": {
+        "primary_correct": true,
+        "secondary_correct": true,
+        "required_entities": {
+          "area|landmark": false,
+          "civic_category": false
+        },
+        "missing_explicit_entities": [
+          "area|landmark",
+          "civic_category"
+        ],
+        "clarification_correct": true,
+        "unsupported_or_ungrounded_entities_rejected": 0,
+        "passed": false
+      }
+    },
+    {
+      "model": "openai/gpt-oss-120b",
+      "case_id": "18",
+      "core": false,
+      "state": "completed",
+      "seconds": 1.2121216999948956,
+      "response": {
+        "type": "unavailable",
+        "title": "Request understood",
+        "description": "I understood that you need help with civic lookup, but live city results are not available yet. No lookup or action has been performed.",
+        "details": [
+          "Need: civic lookup",
+          "City services not connected"
+        ],
+        "places": [],
+        "status": "service_not_configured",
+        "source": null,
+        "understanding": {
+          "primary_intent": "civic_lookup",
+          "secondary_intents": [],
+          "language": null,
+          "city": "Bengaluru",
+          "area": "HSR Layout",
+          "landmark": null,
+          "origin": null,
+          "destination": null,
+          "exact_location": null,
+          "report_id": null,
+          "budget": null,
+          "time_constraint": null,
+          "duration": null,
+          "transport_preference": null,
+          "preferences": [],
+          "accessibility_constraints": [],
+          "civic_category": "pothole",
+          "missing_information": [],
+          "entities": [
+            {
+              "type": "civic_category",
+              "value": "pothole",
+              "evidence": "Show reported potholes around HSR Layout."
+            },
+            {
+              "type": "area",
+              "value": "HSR Layout",
+              "evidence": "Show reported potholes around HSR Layout."
+            }
+          ],
+          "validation_warnings": [],
+          "original_text": "Show reported potholes around HSR Layout.",
+          "action": null,
+          "method": "groq",
+          "clarification_needed": false,
+          "suggested_service_handler": "civic_records_service",
+          "processing_status": "understood"
+        },
+        "interpretation_status": "understood"
+      },
+      "raw_extraction": {
+        "primary_intent": "civic_lookup",
+        "secondary_intents": [],
+        "entities": [
+          {
+            "type": "civic_category",
+            "value": "pothole",
+            "evidence": "\"Show reported potholes around HSR Layout.\""
+          },
+          {
+            "type": "area",
+            "value": "HSR Layout",
+            "evidence": "\"Show reported potholes around HSR Layout.\""
+          }
+        ]
+      },
+      "score": {
+        "primary_correct": true,
+        "secondary_correct": true,
+        "required_entities": {
+          "area|landmark": true,
+          "civic_category": true
+        },
+        "missing_explicit_entities": [],
+        "clarification_correct": true,
+        "unsupported_or_ungrounded_entities_rejected": 0,
+        "passed": true
+      }
+    },
+    {
+      "model": "openai/gpt-oss-20b",
+      "case_id": "19",
+      "core": false,
+      "state": "completed",
+      "seconds": 0.9644160000025295,
+      "response": {
+        "type": "unavailable",
+        "title": "Request understood",
+        "description": "I understood that you need help with civic lookup, but live city results are not available yet. No lookup or action has been performed.",
+        "details": [
+          "Need: civic lookup",
+          "City services not connected"
+        ],
+        "places": [],
+        "status": "service_not_configured",
+        "source": null,
+        "understanding": {
+          "primary_intent": "civic_lookup",
+          "secondary_intents": [],
+          "language": null,
+          "city": "Bengaluru",
+          "area": null,
+          "landmark": null,
+          "origin": null,
+          "destination": null,
+          "exact_location": null,
+          "report_id": null,
+          "budget": null,
+          "time_constraint": null,
+          "duration": null,
+          "transport_preference": null,
+          "preferences": [],
+          "accessibility_constraints": [],
+          "civic_category": null,
+          "missing_information": [],
+          "entities": [],
+          "validation_warnings": [],
+          "original_text": "Any waterlogging reports near Bellandur?",
+          "action": null,
+          "method": "groq",
+          "clarification_needed": false,
+          "suggested_service_handler": "civic_records_service",
+          "processing_status": "understood"
+        },
+        "interpretation_status": "understood"
+      },
+      "raw_extraction": {
+        "primary_intent": "civic_lookup",
+        "secondary_intents": [],
+        "entities": []
+      },
+      "score": {
+        "primary_correct": true,
+        "secondary_correct": true,
+        "required_entities": {
+          "area|landmark": false,
+          "civic_category": false
+        },
+        "missing_explicit_entities": [
+          "area|landmark",
+          "civic_category"
+        ],
+        "clarification_correct": true,
+        "unsupported_or_ungrounded_entities_rejected": 0,
+        "passed": false
+      }
+    },
+    {
+      "model": "openai/gpt-oss-120b",
+      "case_id": "19",
+      "core": false,
+      "state": "completed",
+      "seconds": 1.0754811000078917,
+      "response": {
+        "type": "unavailable",
+        "title": "Request understood",
+        "description": "I understood that you need help with civic lookup, but live city results are not available yet. No lookup or action has been performed.",
+        "details": [
+          "Need: civic lookup",
+          "City services not connected"
+        ],
+        "places": [],
+        "status": "service_not_configured",
+        "source": null,
+        "understanding": {
+          "primary_intent": "civic_lookup",
+          "secondary_intents": [],
+          "language": null,
+          "city": "Bengaluru",
+          "area": "Bellandur",
+          "landmark": null,
+          "origin": null,
+          "destination": null,
+          "exact_location": null,
+          "report_id": null,
+          "budget": null,
+          "time_constraint": null,
+          "duration": null,
+          "transport_preference": null,
+          "preferences": [],
+          "accessibility_constraints": [],
+          "civic_category": "waterlogging",
+          "missing_information": [],
+          "entities": [
+            {
+              "type": "civic_category",
+              "value": "waterlogging",
+              "evidence": "Any waterlogging reports"
+            },
+            {
+              "type": "area",
+              "value": "Bellandur",
+              "evidence": "near Bellandur"
+            }
+          ],
+          "validation_warnings": [],
+          "original_text": "Any waterlogging reports near Bellandur?",
+          "action": null,
+          "method": "groq",
+          "clarification_needed": false,
+          "suggested_service_handler": "civic_records_service",
+          "processing_status": "understood"
+        },
+        "interpretation_status": "understood"
+      },
+      "raw_extraction": {
+        "primary_intent": "civic_lookup",
+        "secondary_intents": [],
+        "entities": [
+          {
+            "type": "civic_category",
+            "value": "waterlogging",
+            "evidence": "\"Any waterlogging reports\""
+          },
+          {
+            "type": "area",
+            "value": "Bellandur",
+            "evidence": "\"near Bellandur\""
+          }
+        ]
+      },
+      "score": {
+        "primary_correct": true,
+        "secondary_correct": true,
+        "required_entities": {
+          "area|landmark": true,
+          "civic_category": true
+        },
+        "missing_explicit_entities": [],
+        "clarification_correct": true,
+        "unsupported_or_ungrounded_entities_rejected": 0,
+        "passed": true
+      }
+    },
+    {
+      "model": "openai/gpt-oss-20b",
+      "case_id": "20",
+      "core": false,
+      "state": "completed",
+      "seconds": 0.9312407999823336,
+      "response": {
+        "type": "unavailable",
+        "title": "Request understood",
+        "description": "I understood that you need help with tourism, but live city results are not available yet. No lookup or action has been performed.",
+        "details": [
+          "Need: tourism",
+          "City services not connected"
+        ],
+        "places": [],
+        "status": "service_not_configured",
+        "source": null,
+        "understanding": {
+          "primary_intent": "tourism",
+          "secondary_intents": [],
+          "language": null,
+          "city": "Bengaluru",
+          "area": null,
+          "landmark": null,
+          "origin": null,
+          "destination": null,
+          "exact_location": null,
+          "report_id": null,
+          "budget": null,
+          "time_constraint": "two-day",
+          "duration": "two-day",
+          "transport_preference": null,
+          "preferences": [],
+          "accessibility_constraints": [],
+          "civic_category": null,
+          "missing_information": [],
+          "entities": [
+            {
+              "type": "duration",
+              "value": "two-day",
+              "evidence": "two-day"
+            },
+            {
+              "type": "city",
+              "value": "Bengaluru",
+              "evidence": "Bengaluru"
+            }
+          ],
+          "validation_warnings": [],
+          "original_text": "Build a two-day sightseeing itinerary in Bengaluru.",
+          "action": null,
+          "method": "groq",
+          "clarification_needed": false,
+          "suggested_service_handler": "itinerary_service",
+          "processing_status": "understood"
+        },
+        "interpretation_status": "understood"
+      },
+      "raw_extraction": {
+        "primary_intent": "tourism",
+        "secondary_intents": [],
+        "entities": []
+      },
+      "score": {
+        "primary_correct": true,
+        "secondary_correct": true,
+        "required_entities": {
+          "city": true,
+          "duration": true
+        },
+        "missing_explicit_entities": [],
+        "clarification_correct": true,
+        "unsupported_or_ungrounded_entities_rejected": 0,
+        "passed": true
+      }
+    },
+    {
+      "model": "openai/gpt-oss-120b",
+      "case_id": "20",
+      "core": false,
+      "state": "completed",
+      "seconds": 1.2017852000135463,
+      "response": {
+        "type": "unavailable",
+        "title": "Request understood",
+        "description": "I understood that you need help with tourism, but live city results are not available yet. No lookup or action has been performed.",
+        "details": [
+          "Need: tourism",
+          "City services not connected"
+        ],
+        "places": [],
+        "status": "service_not_configured",
+        "source": null,
+        "understanding": {
+          "primary_intent": "tourism",
+          "secondary_intents": [],
+          "language": null,
+          "city": "Bengaluru",
+          "area": null,
+          "landmark": null,
+          "origin": null,
+          "destination": null,
+          "exact_location": null,
+          "report_id": null,
+          "budget": null,
+          "time_constraint": "two-day",
+          "duration": "two-day",
+          "transport_preference": null,
+          "preferences": [],
+          "accessibility_constraints": [],
+          "civic_category": null,
+          "missing_information": [],
+          "entities": [
+            {
+              "type": "duration",
+              "value": "two-day",
+              "evidence": "two-day"
+            },
+            {
+              "type": "city",
+              "value": "Bengaluru",
+              "evidence": "Bengaluru"
+            }
+          ],
+          "validation_warnings": [],
+          "original_text": "Build a two-day sightseeing itinerary in Bengaluru.",
+          "action": null,
+          "method": "groq",
+          "clarification_needed": false,
+          "suggested_service_handler": "itinerary_service",
+          "processing_status": "understood"
+        },
+        "interpretation_status": "understood"
+      },
+      "raw_extraction": {
+        "primary_intent": "tourism",
+        "secondary_intents": [],
+        "entities": []
+      },
+      "score": {
+        "primary_correct": true,
+        "secondary_correct": true,
+        "required_entities": {
+          "city": true,
+          "duration": true
+        },
+        "missing_explicit_entities": [],
+        "clarification_correct": true,
+        "unsupported_or_ungrounded_entities_rejected": 0,
+        "passed": true
+      }
+    },
+    {
+      "model": "openai/gpt-oss-20b",
+      "case_id": "21",
+      "core": false,
+      "state": "completed",
+      "seconds": 0.8725911000219639,
+      "response": {
+        "type": "unavailable",
+        "title": "Request understood",
+        "description": "I understood that you need help with tourism, but live city results are not available yet. No lookup or action has been performed.",
+        "details": [
+          "Need: tourism",
+          "City services not connected"
+        ],
+        "places": [],
+        "status": "service_not_configured",
+        "source": null,
+        "understanding": {
+          "primary_intent": "tourism",
+          "secondary_intents": [],
+          "language": null,
+          "city": "Bengaluru",
+          "area": null,
+          "landmark": null,
+          "origin": null,
+          "destination": null,
+          "exact_location": null,
+          "report_id": null,
+          "budget": null,
+          "time_constraint": "six hours",
+          "duration": "six hours",
+          "transport_preference": null,
+          "preferences": [],
+          "accessibility_constraints": [],
+          "civic_category": null,
+          "missing_information": [],
+          "entities": [
+            {
+              "type": "duration",
+              "value": "six hours",
+              "evidence": "six hours"
+            },
+            {
+              "type": "city",
+              "value": "Bengaluru",
+              "evidence": "Bengaluru"
+            }
+          ],
+          "validation_warnings": [],
+          "original_text": "I have six hours in Bengaluru and want to see the sights.",
+          "action": null,
+          "method": "groq",
+          "clarification_needed": false,
+          "suggested_service_handler": "itinerary_service",
+          "processing_status": "understood"
+        },
+        "interpretation_status": "understood"
+      },
+      "raw_extraction": {
+        "primary_intent": "tourism",
+        "secondary_intents": [],
+        "entities": []
+      },
+      "score": {
+        "primary_correct": true,
+        "secondary_correct": true,
+        "required_entities": {
+          "city": true,
+          "duration": true
+        },
+        "missing_explicit_entities": [],
+        "clarification_correct": true,
+        "unsupported_or_ungrounded_entities_rejected": 0,
+        "passed": true
+      }
+    },
+    {
+      "model": "openai/gpt-oss-120b",
+      "case_id": "21",
+      "core": false,
+      "state": "completed",
+      "seconds": 1.6406527000071947,
+      "response": {
+        "type": "unavailable",
+        "title": "Request understood",
+        "description": "I understood that you need help with tourism, but live city results are not available yet. No lookup or action has been performed.",
+        "details": [
+          "Need: tourism",
+          "City services not connected"
+        ],
+        "places": [],
+        "status": "service_not_configured",
+        "source": null,
+        "understanding": {
+          "primary_intent": "tourism",
+          "secondary_intents": [],
+          "language": null,
+          "city": "Bengaluru",
+          "area": null,
+          "landmark": null,
+          "origin": null,
+          "destination": null,
+          "exact_location": null,
+          "report_id": null,
+          "budget": null,
+          "time_constraint": "six hours",
+          "duration": "six hours",
+          "transport_preference": null,
+          "preferences": [],
+          "accessibility_constraints": [],
+          "civic_category": null,
+          "missing_information": [],
+          "entities": [
+            {
+              "type": "duration",
+              "value": "six hours",
+              "evidence": "six hours"
+            },
+            {
+              "type": "city",
+              "value": "Bengaluru",
+              "evidence": "Bengaluru"
+            }
+          ],
+          "validation_warnings": [],
+          "original_text": "I have six hours in Bengaluru and want to see the sights.",
+          "action": null,
+          "method": "groq",
+          "clarification_needed": false,
+          "suggested_service_handler": "itinerary_service",
+          "processing_status": "understood"
+        },
+        "interpretation_status": "understood"
+      },
+      "raw_extraction": {
+        "primary_intent": "tourism",
+        "secondary_intents": [],
+        "entities": [
+          {
+            "type": "duration",
+            "value": "six hours",
+            "evidence": "\"six hours\""
+          }
+        ]
+      },
+      "score": {
+        "primary_correct": true,
+        "secondary_correct": true,
+        "required_entities": {
+          "city": true,
+          "duration": true
+        },
+        "missing_explicit_entities": [],
+        "clarification_correct": true,
+        "unsupported_or_ungrounded_entities_rejected": 0,
+        "passed": true
+      }
+    },
+    {
+      "model": "openai/gpt-oss-20b",
+      "case_id": "22",
+      "core": false,
+      "state": "completed",
+      "seconds": 0.8640042999759316,
+      "response": {
+        "type": "unavailable",
+        "title": "Request understood",
+        "description": "I understood that you need help with emergency, but live city results are not available yet. No lookup or action has been performed.",
+        "details": [
+          "Need: emergency",
+          "City services not connected"
+        ],
+        "places": [],
+        "status": "service_not_configured",
+        "source": null,
+        "understanding": {
+          "primary_intent": "emergency",
+          "secondary_intents": [],
+          "language": null,
+          "city": "Bengaluru",
+          "area": null,
+          "landmark": null,
+          "origin": null,
+          "destination": null,
+          "exact_location": null,
+          "report_id": null,
+          "budget": null,
+          "time_constraint": null,
+          "duration": null,
+          "transport_preference": null,
+          "preferences": [],
+          "accessibility_constraints": [],
+          "civic_category": null,
+          "missing_information": [],
+          "entities": [
+            {
+              "type": "city",
+              "value": "Bengaluru",
+              "evidence": "Bengaluru"
+            }
+          ],
+          "validation_warnings": [],
+          "original_text": "I need an ambulance urgently in Bengaluru.",
+          "action": null,
+          "method": "groq",
+          "clarification_needed": false,
+          "suggested_service_handler": "emergency_information_service",
+          "processing_status": "understood"
+        },
+        "interpretation_status": "understood"
+      },
+      "raw_extraction": {
+        "primary_intent": "emergency",
+        "secondary_intents": [],
+        "entities": []
+      },
+      "score": {
+        "primary_correct": true,
+        "secondary_correct": true,
+        "required_entities": {
+          "city": true
+        },
+        "missing_explicit_entities": [],
+        "clarification_correct": true,
+        "unsupported_or_ungrounded_entities_rejected": 0,
+        "passed": true
+      }
+    },
+    {
+      "model": "openai/gpt-oss-120b",
+      "case_id": "22",
+      "core": false,
+      "state": "completed",
+      "seconds": 0.9357893999840599,
+      "response": {
+        "type": "unavailable",
+        "title": "Request understood",
+        "description": "I understood that you need help with emergency, but live city results are not available yet. No lookup or action has been performed.",
+        "details": [
+          "Need: emergency",
+          "City services not connected"
+        ],
+        "places": [],
+        "status": "service_not_configured",
+        "source": null,
+        "understanding": {
+          "primary_intent": "emergency",
+          "secondary_intents": [],
+          "language": null,
+          "city": "Bengaluru",
+          "area": null,
+          "landmark": null,
+          "origin": null,
+          "destination": null,
+          "exact_location": null,
+          "report_id": null,
+          "budget": null,
+          "time_constraint": null,
+          "duration": null,
+          "transport_preference": null,
+          "preferences": [],
+          "accessibility_constraints": [],
+          "civic_category": null,
+          "missing_information": [],
+          "entities": [
+            {
+              "type": "city",
+              "value": "Bengaluru",
+              "evidence": "Bengaluru"
+            }
+          ],
+          "validation_warnings": [],
+          "original_text": "I need an ambulance urgently in Bengaluru.",
+          "action": null,
+          "method": "groq",
+          "clarification_needed": false,
+          "suggested_service_handler": "emergency_information_service",
+          "processing_status": "understood"
+        },
+        "interpretation_status": "understood"
+      },
+      "raw_extraction": {
+        "primary_intent": "emergency",
+        "secondary_intents": [],
+        "entities": []
+      },
+      "score": {
+        "primary_correct": true,
+        "secondary_correct": true,
+        "required_entities": {
+          "city": true
+        },
+        "missing_explicit_entities": [],
+        "clarification_correct": true,
+        "unsupported_or_ungrounded_entities_rejected": 0,
+        "passed": true
+      }
+    },
+    {
+      "model": "openai/gpt-oss-20b",
+      "case_id": "23",
+      "core": false,
+      "state": "completed",
+      "seconds": 0.8613469999982044,
+      "response": {
+        "type": "unavailable",
+        "title": "Request understood",
+        "description": "I understood that you need help with city guidance, but live city results are not available yet. No lookup or action has been performed.",
+        "details": [
+          "Need: city guidance",
+          "City services not connected"
+        ],
+        "places": [],
+        "status": "service_not_configured",
+        "source": null,
+        "understanding": {
+          "primary_intent": "city_guidance",
+          "secondary_intents": [],
+          "language": null,
+          "city": "Bengaluru",
+          "area": null,
+          "landmark": null,
+          "origin": null,
+          "destination": null,
+          "exact_location": null,
+          "report_id": null,
+          "budget": null,
+          "time_constraint": null,
+          "duration": null,
+          "transport_preference": null,
+          "preferences": [],
+          "accessibility_constraints": [],
+          "civic_category": null,
+          "missing_information": [],
+          "entities": [
+            {
+              "type": "city",
+              "value": "Bengaluru",
+              "evidence": "Bengaluru"
+            }
+          ],
+          "validation_warnings": [],
+          "original_text": "What should I know before moving to Bengaluru?",
+          "action": null,
+          "method": "groq",
+          "clarification_needed": false,
+          "suggested_service_handler": "city_guidance_service",
+          "processing_status": "understood"
+        },
+        "interpretation_status": "understood"
+      },
+      "raw_extraction": {
+        "primary_intent": "city_guidance",
+        "secondary_intents": [],
+        "entities": []
+      },
+      "score": {
+        "primary_correct": true,
+        "secondary_correct": true,
+        "required_entities": {
+          "city": true
+        },
+        "missing_explicit_entities": [],
+        "clarification_correct": true,
+        "unsupported_or_ungrounded_entities_rejected": 0,
+        "passed": true
+      }
+    },
+    {
+      "model": "openai/gpt-oss-120b",
+      "case_id": "23",
+      "core": false,
+      "state": "completed",
+      "seconds": 1.7568172000173945,
+      "response": {
+        "type": "unavailable",
+        "title": "Request understood",
+        "description": "I understood that you need help with city guidance, but live city results are not available yet. No lookup or action has been performed.",
+        "details": [
+          "Need: city guidance",
+          "City services not connected"
+        ],
+        "places": [],
+        "status": "service_not_configured",
+        "source": null,
+        "understanding": {
+          "primary_intent": "city_guidance",
+          "secondary_intents": [],
+          "language": null,
+          "city": "Bengaluru",
+          "area": null,
+          "landmark": null,
+          "origin": null,
+          "destination": null,
+          "exact_location": null,
+          "report_id": null,
+          "budget": null,
+          "time_constraint": null,
+          "duration": null,
+          "transport_preference": null,
+          "preferences": [],
+          "accessibility_constraints": [],
+          "civic_category": null,
+          "missing_information": [],
+          "entities": [
+            {
+              "type": "city",
+              "value": "Bengaluru",
+              "evidence": "Bengaluru"
+            }
+          ],
+          "validation_warnings": [],
+          "original_text": "What should I know before moving to Bengaluru?",
+          "action": null,
+          "method": "groq",
+          "clarification_needed": false,
+          "suggested_service_handler": "city_guidance_service",
+          "processing_status": "understood"
+        },
+        "interpretation_status": "understood"
+      },
+      "raw_extraction": {
+        "primary_intent": "city_guidance",
+        "secondary_intents": [],
+        "entities": []
+      },
+      "score": {
+        "primary_correct": true,
+        "secondary_correct": true,
+        "required_entities": {
+          "city": true
+        },
+        "missing_explicit_entities": [],
+        "clarification_correct": true,
+        "unsupported_or_ungrounded_entities_rejected": 0,
+        "passed": true
+      }
+    },
+    {
+      "model": "openai/gpt-oss-20b",
+      "case_id": "24",
+      "core": false,
+      "state": "completed",
+      "seconds": 0.9024970000027679,
+      "response": {
+        "type": "guide",
+        "title": "A little more information is needed",
+        "description": "Please tell me what you need help with. No city lookup or action has been performed.",
+        "details": [
+          "Need: unsupported",
+          "City services not connected"
+        ],
+        "places": [],
+        "status": "clarification_required",
+        "source": null,
+        "understanding": {
+          "primary_intent": "unsupported",
+          "secondary_intents": [],
+          "language": null,
+          "city": null,
+          "area": null,
+          "landmark": null,
+          "origin": null,
+          "destination": null,
+          "exact_location": null,
+          "report_id": null,
+          "budget": null,
+          "time_constraint": null,
+          "duration": null,
+          "transport_preference": null,
+          "preferences": [],
+          "accessibility_constraints": [],
+          "civic_category": null,
+          "missing_information": [
+            "request_goal"
+          ],
+          "entities": [],
+          "validation_warnings": [],
+          "original_text": "Can you help me with that?",
+          "action": null,
+          "method": "groq",
+          "clarification_needed": true,
+          "suggested_service_handler": null,
+          "processing_status": "unsupported"
+        },
+        "interpretation_status": "unsupported"
+      },
+      "raw_extraction": {
+        "primary_intent": "unsupported",
+        "secondary_intents": [],
+        "entities": []
+      },
+      "score": {
+        "primary_correct": true,
+        "secondary_correct": true,
+        "required_entities": {
+          "city": true
+        },
+        "missing_explicit_entities": [],
+        "clarification_correct": true,
+        "unsupported_or_ungrounded_entities_rejected": 0,
+        "passed": true
+      }
+    },
+    {
+      "model": "openai/gpt-oss-120b",
+      "case_id": "24",
+      "core": false,
+      "state": "completed",
+      "seconds": 0.9981525999901351,
+      "response": {
+        "type": "guide",
+        "title": "A little more information is needed",
+        "description": "Please tell me what you need help with. No city lookup or action has been performed.",
+        "details": [
+          "Need: unsupported",
+          "City services not connected"
+        ],
+        "places": [],
+        "status": "clarification_required",
+        "source": null,
+        "understanding": {
+          "primary_intent": "unsupported",
+          "secondary_intents": [],
+          "language": null,
+          "city": null,
+          "area": null,
+          "landmark": null,
+          "origin": null,
+          "destination": null,
+          "exact_location": null,
+          "report_id": null,
+          "budget": null,
+          "time_constraint": null,
+          "duration": null,
+          "transport_preference": null,
+          "preferences": [],
+          "accessibility_constraints": [],
+          "civic_category": null,
+          "missing_information": [
+            "request_goal"
+          ],
+          "entities": [],
+          "validation_warnings": [],
+          "original_text": "Can you help me with that?",
+          "action": null,
+          "method": "groq",
+          "clarification_needed": true,
+          "suggested_service_handler": null,
+          "processing_status": "unsupported"
+        },
+        "interpretation_status": "unsupported"
+      },
+      "raw_extraction": {
+        "primary_intent": "unsupported",
+        "secondary_intents": [],
+        "entities": []
+      },
+      "score": {
+        "primary_correct": true,
+        "secondary_correct": true,
+        "required_entities": {
+          "city": true
+        },
+        "missing_explicit_entities": [],
+        "clarification_correct": true,
+        "unsupported_or_ungrounded_entities_rejected": 0,
+        "passed": true
+      }
+    },
+    {
+      "model": "openai/gpt-oss-20b",
+      "case_id": "25",
+      "core": false,
+      "state": "completed",
+      "seconds": 0.9902490999957081,
+      "response": {
+        "type": "unavailable",
+        "title": "Request understood",
+        "description": "I understood that you need help with accommodation, but live city results are not available yet. No lookup or action has been performed.",
+        "details": [
+          "Need: accommodation",
+          "City services not connected"
+        ],
+        "places": [],
+        "status": "service_not_configured",
+        "source": null,
+        "understanding": {
+          "primary_intent": "accommodation",
+          "secondary_intents": [],
+          "language": null,
+          "city": "Bengaluru",
+          "area": "Ulsoor",
+          "landmark": null,
+          "origin": null,
+          "destination": null,
+          "exact_location": null,
+          "report_id": null,
+          "budget": {
+            "amount": 1800.0,
+            "currency": "INR",
+            "raw_text": "under Rs 1800",
+            "constraint": "maximum"
+          },
+          "time_constraint": null,
+          "duration": null,
+          "transport_preference": null,
+          "preferences": [],
+          "accessibility_constraints": [],
+          "civic_category": null,
+          "missing_information": [],
+          "entities": [
+            {
+              "type": "city",
+              "value": "Bengaluru",
+              "evidence": "Bengaluru"
+            },
+            {
+              "type": "area",
+              "value": "Ulsoor",
+              "evidence": "What about near Ulsoor?"
+            },
+            {
+              "type": "budget",
+              "value": "1800.0",
+              "evidence": "under Rs 1800"
+            },
+            {
+              "type": "currency",
+              "value": "INR",
+              "evidence": "Rs"
+            }
+          ],
+          "validation_warnings": [],
+          "original_text": "What about near Ulsoor?",
+          "action": null,
+          "method": "groq",
+          "clarification_needed": false,
+          "suggested_service_handler": "accommodation_service",
+          "processing_status": "understood"
+        },
+        "interpretation_status": "understood"
+      },
+      "raw_extraction": {
+        "primary_intent": "accommodation",
+        "secondary_intents": [],
+        "entities": [
+          {
+            "type": "city",
+            "value": "Bengaluru",
+            "evidence": "\"city\": \"Bengaluru\""
+          },
+          {
+            "type": "area",
+            "value": "Ulsoor",
+            "evidence": "\"What about near Ulsoor?\""
+          },
+          {
+            "type": "budget",
+            "value": "1800",
+            "evidence": "\"under Rs 1800\""
+          },
+          {
+            "type": "currency",
+            "value": "INR",
+            "evidence": "\"Rs\""
+          }
+        ]
+      },
+      "score": {
+        "primary_correct": true,
+        "secondary_correct": true,
+        "required_entities": {
+          "area|landmark": true,
+          "budget.amount": true,
+          "budget.currency": true
+        },
+        "missing_explicit_entities": [],
+        "clarification_correct": true,
+        "unsupported_or_ungrounded_entities_rejected": 0,
+        "passed": true
+      }
+    },
+    {
+      "model": "openai/gpt-oss-120b",
+      "case_id": "25",
+      "core": false,
+      "state": "completed",
+      "seconds": 2.1290077999874484,
+      "response": {
+        "type": "unavailable",
+        "title": "Request understood",
+        "description": "I understood that you need help with accommodation, but live city results are not available yet. No lookup or action has been performed.",
+        "details": [
+          "Need: accommodation",
+          "City services not connected"
+        ],
+        "places": [],
+        "status": "service_not_configured",
+        "source": null,
+        "understanding": {
+          "primary_intent": "accommodation",
+          "secondary_intents": [],
+          "language": null,
+          "city": "Bengaluru",
+          "area": "Ulsoor",
+          "landmark": null,
+          "origin": null,
+          "destination": null,
+          "exact_location": null,
+          "report_id": null,
+          "budget": {
+            "amount": 1800.0,
+            "currency": "INR",
+            "raw_text": "Find accommodation under Rs 1800.",
+            "constraint": "maximum"
+          },
+          "time_constraint": null,
+          "duration": null,
+          "transport_preference": null,
+          "preferences": [],
+          "accessibility_constraints": [],
+          "civic_category": null,
+          "missing_information": [],
+          "entities": [
+            {
+              "type": "area",
+              "value": "Ulsoor",
+              "evidence": "What about near Ulsoor?"
+            },
+            {
+              "type": "budget",
+              "value": "1800.0",
+              "evidence": "Find accommodation under Rs 1800."
+            },
+            {
+              "type": "currency",
+              "value": "INR",
+              "evidence": "Find accommodation under Rs 1800."
+            }
+          ],
+          "validation_warnings": [],
+          "original_text": "What about near Ulsoor?",
+          "action": null,
+          "method": "groq",
+          "clarification_needed": false,
+          "suggested_service_handler": "accommodation_service",
+          "processing_status": "understood"
+        },
+        "interpretation_status": "understood"
+      },
+      "raw_extraction": {
+        "primary_intent": "accommodation",
+        "secondary_intents": [],
+        "entities": [
+          {
+            "type": "area",
+            "value": "Ulsoor",
+            "evidence": "\"What about near Ulsoor?\""
+          },
+          {
+            "type": "budget",
+            "value": "1800",
+            "evidence": "\"Find accommodation under Rs 1800.\""
+          },
+          {
+            "type": "currency",
+            "value": "INR",
+            "evidence": "\"Find accommodation under Rs 1800.\""
+          }
+        ]
+      },
+      "score": {
+        "primary_correct": true,
+        "secondary_correct": true,
+        "required_entities": {
+          "area|landmark": true,
+          "budget.amount": true,
+          "budget.currency": true
+        },
+        "missing_explicit_entities": [],
+        "clarification_correct": true,
+        "unsupported_or_ungrounded_entities_rejected": 0,
+        "passed": true
+      }
+    }
+  ],
+  "stop_reason": "completed",
+  "summary": {
+    "openai/gpt-oss-20b": {
+      "attempts": 25,
+      "completed": 25,
+      "primary_correct": 24,
+      "secondary_correct": 25,
+      "required_entities_correct": 32,
+      "required_entities_total": 55,
+      "missing_explicit_entities": 23,
+      "unsupported_or_ungrounded_entities_rejected": 5,
+      "schema_validation_failures": 0,
+      "timeouts": 0,
+      "rate_limits": 0,
+      "median_seconds": 1.0066394000023138,
+      "p95_seconds": 1.2211177999852225,
+      "core_passed": [
+        "C"
+      ],
+      "failed_cases": [
+        "A",
+        "B",
+        "D",
+        "E",
+        "06",
+        "08",
+        "09",
+        "11",
+        "12",
+        "14",
+        "15",
+        "16",
+        "18",
+        "19"
+      ],
+      "quality_gate_passed": false
+    },
+    "openai/gpt-oss-120b": {
+      "attempts": 25,
+      "completed": 25,
+      "primary_correct": 25,
+      "secondary_correct": 25,
+      "required_entities_correct": 35,
+      "required_entities_total": 55,
+      "missing_explicit_entities": 20,
+      "unsupported_or_ungrounded_entities_rejected": 17,
+      "schema_validation_failures": 0,
+      "timeouts": 0,
+      "rate_limits": 0,
+      "median_seconds": 1.1086346999800298,
+      "p95_seconds": 2.1290077999874484,
+      "core_passed": [],
+      "failed_cases": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "06",
+        "07",
+        "08",
+        "15",
+        "16"
+      ],
+      "quality_gate_passed": false
+    }
+  },
+  "stops": [
+    {
+      "reason": "provider_error",
+      "reserved_calls": 17
+    }
+  ]
+}

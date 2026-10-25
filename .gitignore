@@ -40,3 +40,6 @@ Thumbs.db
 
 # Local extraction guides/archives
 smart-nagrik-mobile/
+
+# Durable local community records and user photos (SQLite).
+backend/data/

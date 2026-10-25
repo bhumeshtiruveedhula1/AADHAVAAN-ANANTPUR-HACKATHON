@@ -1,0 +1,425 @@
+{
+  "performed_at": "2026-10-25T03:42:56.221513+00:00",
+  "boundary": "Flask test client -> real Groq/Places/Open-Meteo; no device or WhatsApp test",
+  "counts": {
+    "groq": 4,
+    "resolutions": 7
+  },
+  "cases": [
+    {
+      "case": "route",
+      "http_status": 200,
+      "status": "ok",
+      "verified": true,
+      "endpoint_seconds": 2.194,
+      "new_calls": {
+        "groq": 1,
+        "resolutions": 2
+      },
+      "resolution_statuses": {
+        "destination": "resolved",
+        "origin": "resolved"
+      },
+      "marker_count": 2,
+      "mode": "transit",
+      "demo_labelled": false,
+      "geometry_present": false,
+      "summary_characters": 127
+    },
+    {
+      "case": "mode_metro",
+      "http_status": 200,
+      "status": "ok",
+      "verified": true,
+      "endpoint_seconds": 0.0008,
+      "new_calls": {
+        "groq": 0,
+        "resolutions": 0
+      },
+      "resolution_statuses": {
+        "destination": "resolved",
+        "origin": "resolved"
+      },
+      "marker_count": 2,
+      "mode": "transit",
+      "demo_labelled": false,
+      "geometry_present": false,
+      "summary_characters": 127
+    },
+    {
+      "case": "mode_walk",
+      "http_status": 200,
+      "status": "ok",
+      "verified": true,
+      "endpoint_seconds": 0.0005,
+      "new_calls": {
+        "groq": 0,
+        "resolutions": 0
+      },
+      "resolution_statuses": {
+        "destination": "resolved",
+        "origin": "resolved"
+      },
+      "marker_count": 2,
+      "mode": "walking",
+      "demo_labelled": false,
+      "geometry_present": false,
+      "summary_characters": 129
+    },
+    {
+      "case": "destination",
+      "http_status": 200,
+      "status": "ok",
+      "verified": true,
+      "endpoint_seconds": 0.2986,
+      "new_calls": {
+        "groq": 0,
+        "resolutions": 1
+      },
+      "resolution_statuses": {
+        "destination": "resolved",
+        "origin": "resolved"
+      },
+      "marker_count": 2,
+      "mode": "walking",
+      "demo_labelled": false,
+      "geometry_present": false,
+      "summary_characters": 133
+    },
+    {
+      "case": "other_route",
+      "http_status": 200,
+      "status": "ok",
+      "verified": true,
+      "endpoint_seconds": 1.9444,
+      "new_calls": {
+        "groq": 1,
+        "resolutions": 2
+      },
+      "resolution_statuses": {
+        "destination": "resolved",
+        "origin": "resolved"
+      },
+      "marker_count": 2,
+      "mode": "transit",
+      "demo_labelled": false,
+      "geometry_present": false,
+      "summary_characters": 129
+    },
+    {
+      "case": "demo_route",
+      "http_status": 200,
+      "status": "ok",
+      "verified": true,
+      "endpoint_seconds": 2.4559,
+      "new_calls": {
+        "groq": 1,
+        "resolutions": 2
+      },
+      "resolution_statuses": {
+        "destination": "resolved",
+        "origin": "resolved"
+      },
+      "marker_count": 2,
+      "mode": "transit",
+      "demo_labelled": true,
+      "geometry_present": false,
+      "summary_characters": 124
+    },
+    {
+      "case": "weather",
+      "http_status": 200,
+      "status": "ok",
+      "verified": true,
+      "endpoint_seconds": 2.9314,
+      "new_calls": {
+        "groq": 1,
+        "resolutions": 0
+      },
+      "resolution_statuses": {},
+      "marker_count": 0,
+      "mode": null,
+      "demo_labelled": false,
+      "geometry_present": false,
+      "summary_characters": 61
+    }
+  ],
+  "previous_attempts": [
+    {
+      "performed_at": "2026-10-25T03:41:19.352736+00:00",
+      "boundary": "Flask test client -> real Groq/Places/Open-Meteo; no device or WhatsApp test",
+      "counts": {
+        "groq": 7,
+        "resolutions": 0
+      },
+      "cases": [
+        {
+          "case": "route",
+          "http_status": 504,
+          "status": "intent_timeout",
+          "verified": false,
+          "endpoint_seconds": 2.6536,
+          "new_calls": {
+            "groq": 1,
+            "resolutions": 0
+          },
+          "resolution_statuses": {},
+          "marker_count": 0,
+          "mode": null,
+          "demo_labelled": false,
+          "geometry_present": false,
+          "summary_characters": 0
+        },
+        {
+          "case": "mode_metro",
+          "http_status": 504,
+          "status": "intent_timeout",
+          "verified": false,
+          "endpoint_seconds": 2.6807,
+          "new_calls": {
+            "groq": 1,
+            "resolutions": 0
+          },
+          "resolution_statuses": {},
+          "marker_count": 0,
+          "mode": null,
+          "demo_labelled": false,
+          "geometry_present": false,
+          "summary_characters": 0
+        },
+        {
+          "case": "mode_walk",
+          "http_status": 504,
+          "status": "intent_timeout",
+          "verified": false,
+          "endpoint_seconds": 2.6254,
+          "new_calls": {
+            "groq": 1,
+            "resolutions": 0
+          },
+          "resolution_statuses": {},
+          "marker_count": 0,
+          "mode": null,
+          "demo_labelled": false,
+          "geometry_present": false,
+          "summary_characters": 0
+        },
+        {
+          "case": "destination",
+          "http_status": 504,
+          "status": "intent_timeout",
+          "verified": false,
+          "endpoint_seconds": 2.6113,
+          "new_calls": {
+            "groq": 1,
+            "resolutions": 0
+          },
+          "resolution_statuses": {},
+          "marker_count": 0,
+          "mode": null,
+          "demo_labelled": false,
+          "geometry_present": false,
+          "summary_characters": 0
+        },
+        {
+          "case": "other_route",
+          "http_status": 504,
+          "status": "intent_timeout",
+          "verified": false,
+          "endpoint_seconds": 2.6207,
+          "new_calls": {
+            "groq": 1,
+            "resolutions": 0
+          },
+          "resolution_statuses": {},
+          "marker_count": 0,
+          "mode": null,
+          "demo_labelled": false,
+          "geometry_present": false,
+          "summary_characters": 0
+        },
+        {
+          "case": "demo_route",
+          "http_status": 504,
+          "status": "intent_timeout",
+          "verified": false,
+          "endpoint_seconds": 2.6059,
+          "new_calls": {
+            "groq": 1,
+            "resolutions": 0
+          },
+          "resolution_statuses": {},
+          "marker_count": 0,
+          "mode": null,
+          "demo_labelled": false,
+          "geometry_present": false,
+          "summary_characters": 0
+        },
+        {
+          "case": "weather",
+          "http_status": 504,
+          "status": "intent_timeout",
+          "verified": false,
+          "endpoint_seconds": 2.5991,
+          "new_calls": {
+            "groq": 1,
+            "resolutions": 0
+          },
+          "resolution_statuses": {},
+          "marker_count": 0,
+          "mode": null,
+          "demo_labelled": false,
+          "geometry_present": false,
+          "summary_characters": 0
+        }
+      ]
+    },
+    {
+      "performed_at": "2026-10-25T03:42:01.664004+00:00",
+      "boundary": "Flask test client -> real Groq/Places/Open-Meteo; no device or WhatsApp test",
+      "counts": {
+        "groq": 4,
+        "resolutions": 10
+      },
+      "cases": [
+        {
+          "case": "route",
+          "http_status": 200,
+          "status": "ok",
+          "verified": false,
+          "endpoint_seconds": 2.6877,
+          "new_calls": {
+            "groq": 1,
+            "resolutions": 2
+          },
+          "resolution_statuses": {
+            "destination": "resolved",
+            "origin": "ambiguous"
+          },
+          "marker_count": 1,
+          "mode": "transit",
+          "demo_labelled": false,
+          "geometry_present": false,
+          "summary_characters": 163
+        },
+        {
+          "case": "mode_metro",
+          "http_status": 200,
+          "status": "ok",
+          "verified": false,
+          "endpoint_seconds": 0.3972,
+          "new_calls": {
+            "groq": 0,
+            "resolutions": 1
+          },
+          "resolution_statuses": {
+            "destination": "resolved",
+            "origin": "ambiguous"
+          },
+          "marker_count": 1,
+          "mode": "transit",
+          "demo_labelled": false,
+          "geometry_present": false,
+          "summary_characters": 163
+        },
+        {
+          "case": "mode_walk",
+          "http_status": 200,
+          "status": "ok",
+          "verified": false,
+          "endpoint_seconds": 0.3327,
+          "new_calls": {
+            "groq": 0,
+            "resolutions": 1
+          },
+          "resolution_statuses": {
+            "destination": "resolved",
+            "origin": "ambiguous"
+          },
+          "marker_count": 1,
+          "mode": "walking",
+          "demo_labelled": false,
+          "geometry_present": false,
+          "summary_characters": 165
+        },
+        {
+          "case": "destination",
+          "http_status": 200,
+          "status": "ok",
+          "verified": false,
+          "endpoint_seconds": 0.9553,
+          "new_calls": {
+            "groq": 0,
+            "resolutions": 2
+          },
+          "resolution_statuses": {
+            "destination": "resolved",
+            "origin": "ambiguous"
+          },
+          "marker_count": 1,
+          "mode": "walking",
+          "demo_labelled": false,
+          "geometry_present": false,
+          "summary_characters": 169
+        },
+        {
+          "case": "other_route",
+          "http_status": 200,
+          "status": "ok",
+          "verified": false,
+          "endpoint_seconds": 2.0554,
+          "new_calls": {
+            "groq": 1,
+            "resolutions": 2
+          },
+          "resolution_statuses": {
+            "destination": "resolved",
+            "origin": "ambiguous"
+          },
+          "marker_count": 1,
+          "mode": "transit",
+          "demo_labelled": false,
+          "geometry_present": false,
+          "summary_characters": 165
+        },
+        {
+          "case": "demo_route",
+          "http_status": 200,
+          "status": "ok",
+          "verified": true,
+          "endpoint_seconds": 2.2526,
+          "new_calls": {
+            "groq": 1,
+            "resolutions": 2
+          },
+          "resolution_statuses": {
+            "destination": "resolved",
+            "origin": "resolved"
+          },
+          "marker_count": 2,
+          "mode": "transit",
+          "demo_labelled": true,
+          "geometry_present": false,
+          "summary_characters": 124
+        },
+        {
+          "case": "weather",
+          "http_status": 200,
+          "status": "ok",
+          "verified": true,
+          "endpoint_seconds": 2.3397,
+          "new_calls": {
+            "groq": 1,
+            "resolutions": 0
+          },
+          "resolution_statuses": {},
+          "marker_count": 0,
+          "mode": null,
+          "demo_labelled": false,
+          "geometry_present": false,
+          "summary_characters": 61
+        }
+      ]
+    }
+  ]
+}

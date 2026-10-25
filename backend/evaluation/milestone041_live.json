@@ -1,0 +1,96 @@
+{
+  "performed_at": "2026-10-25T01:59:30.814627+00:00",
+  "records": [
+    {
+      "case": "hotels",
+      "http_status": 200,
+      "status": "ok",
+      "endpoint_seconds": 2.636,
+      "intents": [
+        "accommodation"
+      ],
+      "expected_intents": [
+        "accommodation"
+      ],
+      "place_count": 5,
+      "photo_count": 2,
+      "photo_statuses": [
+        "available",
+        "available",
+        "unavailable",
+        "unavailable",
+        "unavailable"
+      ],
+      "photo_authors_present": 2,
+      "individual_photo_source_links": 2,
+      "image_http_and_signature_verified": true,
+      "image_bytes_in_memory": 37848,
+      "actual_frontend_adapter_passed": true,
+      "verified": true
+    },
+    {
+      "case": "food",
+      "http_status": 200,
+      "status": "ok",
+      "endpoint_seconds": 1.9486,
+      "intents": [
+        "food_places"
+      ],
+      "expected_intents": [
+        "food_places"
+      ],
+      "place_count": 5,
+      "photo_count": 2,
+      "photo_statuses": [
+        "available",
+        "available",
+        "unavailable",
+        "unavailable",
+        "unavailable"
+      ],
+      "photo_authors_present": 2,
+      "individual_photo_source_links": 2,
+      "image_http_and_signature_verified": true,
+      "image_bytes_in_memory": 94640,
+      "actual_frontend_adapter_passed": true,
+      "verified": true
+    },
+    {
+      "case": "mixed",
+      "http_status": 200,
+      "status": "ok",
+      "endpoint_seconds": 3.4791,
+      "intents": [
+        "accommodation",
+        "food_places"
+      ],
+      "expected_intents": [
+        "accommodation",
+        "food_places"
+      ],
+      "place_count": 6,
+      "photo_count": 4,
+      "photo_statuses": [
+        "available",
+        "available",
+        "unavailable",
+        "available",
+        "available",
+        "unavailable"
+      ],
+      "photo_authors_present": 4,
+      "individual_photo_source_links": 4,
+      "image_http_and_signature_verified": true,
+      "image_bytes_in_memory": 37848,
+      "actual_frontend_adapter_passed": true,
+      "verified": true
+    }
+  ],
+  "requests": {
+    "groq": 3,
+    "places": 4,
+    "photo_media": 8,
+    "image_fetch": 3
+  },
+  "boundary": "Flask endpoint, live Groq/Places/Photos, one in-memory image fetch per case and actual TypeScript adapter; no Android device or native map verification"
+}

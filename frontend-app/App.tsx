@@ -1,8 +1,13 @@
-import { useMemo, useState, type ReactNode } from 'react';
-import { Alert, Image, ImageBackground, Keyboard, KeyboardAvoidingView, Linking, Modal, Platform, Pressable, SafeAreaView, ScrollView, Share, StyleSheet, Text, TextInput, View } from 'react-native';
+import { useState } from 'react';
+import { Alert, ImageBackground, Keyboard, KeyboardAvoidingView, Linking, Modal, Platform, Pressable, SafeAreaView, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import * as ImagePicker from 'expo-image-picker';
 import { useFonts } from 'expo-font';
+import { sendChat, type ChatResult, type ChatOptions } from './api/chat';
+import CityResults from './components/CityResults';
+import { type CivicReport, type ReportDraft, type SelectedPhoto } from './api/civic';
+import { ReportForm, PostForm } from './components/CivicForms';
+import { CivicFeed, CivicReportCard } from './components/CivicContent';
 
 const colors = {
   paper: '#F7F5F0',
@@ -47,31 +52,29 @@ export default function App() {
   const [query, setQuery] = useState('');
   const [submittedQuery, setSubmittedQuery] = useState('');
   const [loading, setLoading] = useState(false);
-  const [supported, setSupported] = useState([false, false]);
-  const [reportSuccess, setReportSuccess] = useState(false);
-  const [postSuccess, setPostSuccess] = useState(false);
-  const [reportPhoto, setReportPhoto] = useState<string | null>(null);
-  const [postPhoto, setPostPhoto] = useState<string | null>(null);
+  const [chatResult, setChatResult] = useState<ChatResult | null>(null);
+  const [followQuery, setFollowQuery] = useState('');
+  const [reportDraft, setReportDraft] = useState<ReportDraft>({});
+  const [profileView, setProfileView] = useState<'reports' | 'posts' | null>(null);
+  const [reportPhoto, setReportPhoto] = useState<SelectedPhoto | null>(null);
+  const [postPhoto, setPostPhoto] = useState<SelectedPhoto | null>(null);
 
-
-  const resultKind = useMemo(() => {
-    const text = submittedQuery.toLowerCase();
-    if (/(room|hotel|stay|accommodation|sleep)/.test(text)) return 'stay';
-    if (/(rain|weather|temperature|forecast|umbrella)/.test(text)) return 'weather';
-    if (/(pothole|garbage|streetlight|flood|complaint|report|road)/.test(text)) return 'civic';
-    return 'guide';
-  }, [submittedQuery]);
 
   if (!fontsLoaded) return <View style={styles.loadingScreen}><Text style={styles.wordmark}>smart{`\n`}<Text style={styles.brandStrong}>nagrik</Text></Text></View>;
 
-  const submitQuery = (value = query) => {
+  const submitQuery = async (value = query, options?: ChatOptions) => {
     const trimmed = value.trim();
     if (!trimmed || loading) return;
     setQuery(trimmed);
     setSubmittedQuery(trimmed);
+    setChatResult(null);
     setLoading(true);
     Keyboard.dismiss();
-    setTimeout(() => setLoading(false), 700);
+    try {
+      setChatResult(await sendChat(trimmed, city.name, options));
+    } finally {
+      setLoading(false);
+    }
   };
 
   const chooseCity = (next: City) => {
@@ -79,19 +82,20 @@ export default function App() {
     setSheet(null);
   };
 
-  const pickPhoto = async (setter: (uri: string) => void) => {
+  const pickPhoto = async (setter: (photo: SelectedPhoto) => void) => {
     const permission = await ImagePicker.requestMediaLibraryPermissionsAsync();
     if (!permission.granted) {
       Alert.alert('Photo permission needed', 'You can continue without a photo, or enable access in Settings.');
       return;
     }
     const result = await ImagePicker.launchImageLibraryAsync({ mediaTypes: ['images'], quality: 0.8 });
-    if (!result.canceled) setter(result.assets[0].uri);
+    if (!result.canceled) { const asset = result.assets[0]; if (asset.fileSize && asset.fileSize > 5 * 1024 * 1024) { Alert.alert('Photo too large', 'Choose a photo smaller than 5 MB.'); return; } setter({ uri: asset.uri, name: asset.fileName || 'photo.jpg', type: asset.mimeType || 'image/jpeg' }); }
   };
 
-  const openMap = () => Linking.openURL('https://www.google.com/maps/search/?api=1&query=Vidhana%20Soudha%20Bengaluru');
-  const submitReport = () => { setReportSuccess(true); };
-  const submitPost = () => { setPostSuccess(true); };
+  const openCivic = (action: string) => {
+    if (action === 'open_report') { setReportDraft(chatResult?.report_draft || {}); setReportPhoto(null); setSheet('report'); }
+    else if (action === 'my_reports') { setProfileView('reports'); setSheet('profile'); }
+  };
 
   return (
     <SafeAreaView style={styles.safeArea}>
@@ -118,9 +122,9 @@ export default function App() {
           <View style={styles.resultsSection}>
             <View style={styles.resultsHeader}><View><Kicker>CONTEXTUAL RESULTS   02 / 02</Kicker><Text style={styles.resultsHeading}>The next step,{`\n`}<Text style={styles.serif}>made clearer.</Text></Text></View><Pressable accessibilityLabel="Open relevant alerts" onPress={() => setSheet('alerts')} style={styles.alertButton}><Text style={styles.alertDot}>•</Text><Icon>♧</Icon></Pressable></View>
             {loading && <View style={styles.loadingRow}><Text style={styles.loadingDots}>•••</Text><Text style={styles.muted}>Reading the city context…</Text></View>}
-            {!loading && !submittedQuery && <View style={styles.emptyResult}><Kicker>WAITING FOR YOUR REQUEST</Kicker><Text style={styles.emptyHeading}>One question is enough to begin.</Text><Text style={styles.muted}>Ask about a place, a route, the weather, or something in the city that needs attention.</Text><View style={styles.signalList}><View style={styles.signal}><Text style={styles.muted}>Places & stays</Text><Text style={styles.signalValue}>Available</Text></View><View style={styles.signal}><Text style={styles.muted}>City conditions</Text><Text style={styles.signalValue}>Live context</Text></View><View style={styles.signal}><Text style={styles.muted}>Civic support</Text><Text style={styles.signalValue}>Ready to draft</Text></View></View></View>}
-            {!loading && submittedQuery && <ResultView kind={resultKind} query={submittedQuery} city={city.name} onMap={openMap} onReport={() => setSheet('report')} onNews={() => setSheet('news')} />}
-            <View style={styles.followComposer}><TextInput accessibilityLabel="Ask a follow-up" placeholder="Ask a follow-up…" placeholderTextColor="#8C8C86" style={styles.composerInput} onSubmitEditing={(event) => { if (event.nativeEvent.text.trim()) setSubmittedQuery(`${submittedQuery} · ${event.nativeEvent.text.trim()}`); }} /><Pressable style={styles.followSend}><Text style={styles.sendGlyph}>↗</Text></Pressable></View>
+            {!loading && !submittedQuery && <View style={styles.emptyResult}><Kicker>WAITING FOR YOUR REQUEST</Kicker><Text style={styles.emptyHeading}>One question is enough to begin.</Text><Text style={styles.muted}>Ask about a place, a route, the weather, or something in the city that needs attention.</Text><View style={styles.signalList}><View style={styles.signal}><Text style={styles.muted}>Places & stays</Text><Text style={styles.signalValue}>Ask to explore</Text></View><View style={styles.signal}><Text style={styles.muted}>City conditions</Text><Text style={styles.signalValue}>Ask to explore</Text></View><View style={styles.signal}><Text style={styles.muted}>Civic support</Text><Text style={styles.signalValue}>Reports & community</Text></View></View></View>}
+            {!loading && submittedQuery && chatResult && <ResultView result={chatResult} query={submittedQuery} city={city.name} onReply={(message, options) => submitQuery(message, options)} onCivic={openCivic} />}
+            <View style={styles.followComposer}><TextInput accessibilityLabel="Ask a follow-up" value={followQuery} onChangeText={setFollowQuery} placeholder="Ask a follow-up…" placeholderTextColor="#8C8C86" style={styles.composerInput} onSubmitEditing={() => { if (followQuery.trim()) { submitQuery(followQuery.trim(), { follow_up: true }); setFollowQuery(''); } }} /><Pressable accessibilityLabel="Send follow-up" onPress={() => { if (followQuery.trim()) { submitQuery(followQuery.trim(), { follow_up: true }); setFollowQuery(''); } }} style={styles.followSend}><Text style={styles.sendGlyph}>↗</Text></Pressable></View>
             <Text style={styles.footnote}>Smart Nagrik surfaces only what is relevant. Information and community support are labelled separately.</Text>
           </View>
         </ScrollView>
@@ -129,26 +133,21 @@ export default function App() {
       <Modal visible={sheet !== null} animationType="slide" transparent onRequestClose={() => setSheet(null)}>
         <View style={styles.modalBackdrop}><View style={[styles.sheet, (sheet === 'report' || sheet === 'post' || sheet === 'news') && styles.fullSheet]}><View style={styles.sheetHeader}><View><Text style={styles.sheetTitle}>{sheetTitle(sheet)}</Text><Text style={styles.sheetDescription}>{sheetDescription(sheet)}</Text></View><Pressable accessibilityLabel="Close" onPress={() => setSheet(null)} style={styles.closeButton}><Text style={styles.closeGlyph}>×</Text></Pressable></View><ScrollView contentContainerStyle={styles.sheetBody} keyboardShouldPersistTaps="handled">
           {sheet === 'cities' && <CitySheet city={city} onSelect={chooseCity} />}
-          {sheet === 'profile' && <ProfileSheet onClose={() => setSheet(null)} />}
+          {sheet === 'profile' && <ProfileSheet view={profileView} onView={setProfileView} onClose={() => setSheet(null)} />}
           {sheet === 'more' && <MoreSheet onSelect={setSheet} onHandoff={() => { setSheet(null); submitQuery("I've reached Bengaluru at 4 a.m. and need a room."); }} />}
-          {sheet === 'report' && <ReportSheet success={reportSuccess} photo={reportPhoto} onPhoto={() => pickPhoto((uri) => setReportPhoto(uri))} onSubmit={submitReport} onClose={() => setSheet(null)} />}
-          {sheet === 'post' && <PostSheet success={postSuccess} photo={postPhoto} onPhoto={() => pickPhoto((uri) => setPostPhoto(uri))} onSubmit={submitPost} onClose={() => setSheet(null)} />}
-          {sheet === 'news' && <NewsSheet supported={supported} onSupport={(index) => setSupported((current) => current.map((value, i) => i === index ? !value : value))} />}
+          {sheet === 'report' && <ReportSheet draft={reportDraft} photo={reportPhoto} onPhoto={() => pickPhoto(setReportPhoto)} onClose={() => setSheet(null)} />}
+          {sheet === 'post' && <PostSheet photo={postPhoto} onPhoto={() => pickPhoto(setPostPhoto)} onClose={() => setSheet(null)} />}
+          {sheet === 'news' && <NewsSheet />}
           {sheet === 'emergency' && <EmergencySheet />}
-          {sheet === 'alerts' && <AlertsSheet />}
+          {sheet === 'alerts' && <AlertsSheet reports={chatResult?.reports || []} />}
         </ScrollView></View></View>
       </Modal>
     </SafeAreaView>
   );
 }
 
-function ResultView({ kind, query, city, onMap, onReport, onNews }: { kind: string; query: string; city: string; onMap: () => void; onReport: () => void; onNews: () => void }) {
-  const copy = kind === 'stay' ? ['PLACE FINDER', `A couple of calm, late-check-in stays in ${city}.`, 'Two practical options are open tonight. Both are within a short ride of the city centre, and both have reception after midnight.', ['Open now · late check-in', '₹2,400–₹4,100 / night', '4.6 average rating']] : kind === 'weather' ? ['CITY CONDITIONS', `Rain is possible across ${city} this evening.`, 'Keep a light layer with you and allow a little extra time on the inner-ring roads. The clearest window is before 6:30 p.m.', ['27° now', 'Rain chance · 64%', 'Updated 8 min ago']] : kind === 'civic' ? ['CIVIC SUPPORT', 'You can turn that observation into a clear civic report.', 'Add the location and one useful detail. A photo is optional. Keep the public post separate if you also want neighbours to see it.', ['Draft saved locally', 'Photo optional', 'Location helps routing']] : ['CITY GUIDE', `Here is a simple starting point for ${city}.`, 'Tell me whether you want a place, a route, a local update, or help with a city issue. I will keep the answer focused on the next useful step.', ['Places and routes', 'Local conditions', 'Civic support']];
-  return <View><Text style={styles.queryLabel}>YOUR REQUEST · {city.toUpperCase()}</Text><Text style={styles.queryText}>“{query}”</Text><View style={styles.resultCard}><Text style={styles.cardKicker}>{copy[0]}</Text><Text style={styles.resultTitle}>{copy[1]}</Text><Text style={styles.resultBody}>{copy[2]}</Text><View style={styles.detailRow}>{(copy[3] as string[]).map((detail) => <View key={detail} style={styles.detailPill}><Text style={styles.detailText}>{detail}</Text></View>)}</View><View style={styles.actionRow}><Pressable onPress={kind === 'civic' ? onReport : onMap} style={styles.actionPrimary}><Text style={styles.actionPrimaryText}>{kind === 'civic' ? 'Report issue' : 'Directions'}</Text></Pressable><Pressable onPress={kind === 'civic' ? onNews : onMap} style={styles.actionSecondary}><Text style={styles.actionText}>{kind === 'civic' ? 'View updates' : 'Open map'}</Text></Pressable></View></View><Pressable onPress={onMap} style={styles.mapPreview}><View style={styles.mapRoadOne} /><View style={styles.mapRoadTwo} /><Text style={styles.mapBadge}>CITY MAP · {city.toUpperCase()}</Text><Text style={styles.mapPin}>●</Text><View style={styles.mapBottom}><Text style={styles.mapBottomText}>{kind === 'stay' ? '2 stays · 4.6 km from Indiranagar' : `Nearby context · ${city}`}</Text><Text style={styles.mapOpen}>Open</Text></View></Pressable>{kind === 'stay' && <View style={styles.placeList}><Text style={styles.placeHeading}>Worth a closer look</Text><PlaceCard title="Bloomrooms @ Indiranagar" detail="Simple rooms, quick check-in, breakfast from 7 a.m." price="₹2,400" image={require('./assets/images/hero-bengaluru.jpg')} /><PlaceCard title="The Paul Bengaluru" detail="Quiet stay with a 24-hour front desk and easy cabs." price="₹4,100" image={require('./assets/images/hero-bengaluru.jpg')} /></View>}</View>;
-}
-
-function PlaceCard({ title, detail, price, image }: { title: string; detail: string; price: string; image: any }) {
-  return <View style={styles.placeCard}><Image source={image} style={styles.placeImage} /><View style={styles.placeInfo}><Text style={styles.placeTitle}>{title}</Text><Text style={styles.muted}>{detail}</Text><View style={styles.placeMeta}><Text style={styles.rating}>★ 4.6</Text><Text style={styles.muted}>{price}</Text></View></View></View>;
+function ResultView({ result, query, city, onReply, onCivic }: { result: ChatResult; query: string; city: string; onReply: (message: string, options?: ChatOptions) => Promise<void>; onCivic: (action: string) => void }) {
+  return <View><Text style={styles.queryLabel}>YOUR REQUEST · {city.toUpperCase()}</Text><Text style={styles.queryText}>“{query}”</Text><View style={styles.resultCard}><Text style={styles.cardKicker}>{result.type === 'unavailable' ? 'SERVICE UNAVAILABLE' : result.type.toUpperCase()}</Text><Text style={styles.resultTitle}>{result.title}</Text><Text style={styles.resultBody}>{result.summary || result.description}</Text><View style={styles.detailRow}>{(result.summary ? [] : result.details).map((detail) => <View key={detail} style={styles.detailPill}><Text style={styles.detailText}>{detail}</Text></View>)}</View></View><CityResults key={result.request_id || query} result={result} onReply={onReply} onCivic={onCivic} /></View>;
 }
 
 function sheetTitle(sheet: Sheet) { return ({ cities: 'Change your city', profile: 'Profile', more: 'More', report: 'Add Complaint', post: 'Create a post', news: 'News in your city', emergency: 'Emergency contacts', alerts: 'Relevant alerts' } as Record<string, string>)[sheet || ''] || ''; }
@@ -156,19 +155,16 @@ function sheetDescription(sheet: Sheet) { return ({ cities: 'The context follows
 
 function CitySheet({ city, onSelect }: { city: City; onSelect: (city: City) => void }) { const [search, setSearch] = useState(''); const filtered = cities.filter((item) => item.name.toLowerCase().includes(search.toLowerCase())); return <View><Text style={styles.sheetIntro}>Only configured cities appear here. Your existing question stays unchanged until you send it again.</Text><TextInput value={search} onChangeText={setSearch} placeholder="Search cities" placeholderTextColor="#8C8C86" style={styles.fieldInput} />{filtered.map((item) => <Pressable key={item.name} onPress={() => onSelect(item)} style={[styles.cityRow, item.name === city.name && styles.citySelected]}><View style={styles.cityAvatar}><Text>{item.name.slice(0, 1)}</Text></View><View><Text style={styles.cityName}>{item.name}</Text><Text style={styles.muted}>{item.region}</Text></View><Text style={styles.check}>{item.name === city.name ? '✓' : '○'}</Text></Pressable>)}</View>; }
 
-function ProfileSheet({ onClose }: { onClose: () => void }) { return <View><View style={styles.profileHero}><View style={styles.avatar}><Text style={styles.avatarText}>SN</Text></View><View><Text style={styles.profileTitle}>Local browsing mode</Text><Text style={styles.profileCopy}>Sign in only when account-linked features are needed.</Text></View></View>{['Activity history', 'Completed tasks', 'My posts', 'My reports', 'Updates', 'Account settings'].map((item, index) => <Pressable key={item} onPress={() => Alert.alert(item, 'This section is ready for account connection.')} style={styles.profileRow}><Text style={styles.profileIcon}>{['◷', '✓', '▧', '▤', '♧', '⚙'][index]}</Text><View><Text style={styles.profileRowTitle}>{item}</Text><Text style={styles.muted}>{index === 0 ? 'Previous requests and city context' : 'Available in your local profile'}</Text></View><Text style={styles.rowCount}>{index < 4 ? '0' + (index + 1) : '›'}</Text></Pressable>)}<PrimaryButton title="Close" secondary onPress={onClose} /></View>; }
+function ProfileSheet({ onClose, view, onView }: { onClose: () => void; view: 'reports' | 'posts' | null; onView: (view: 'reports' | 'posts' | null) => void }) { if (view) return <View><CivicFeed mine posts={view === 'posts'} /><PrimaryButton title="Back to profile" secondary onPress={() => onView(null)} /></View>; return <View><View style={styles.profileHero}><View style={styles.avatar}><Text style={styles.avatarText}>SN</Text></View><View><Text style={styles.profileTitle}>Local browsing mode</Text><Text style={styles.profileCopy}>Reports and support are linked to this installation, not a verified person.</Text></View></View>{['Activity history', 'Completed tasks', 'My posts', 'My reports', 'Updates', 'Account settings'].map((item, index) => <Pressable key={item} onPress={() => index === 2 ? onView('posts') : index === 3 ? onView('reports') : Alert.alert(item, 'This feature is not connected yet.')} style={styles.profileRow}><Text style={styles.profileIcon}>{['◷', '✓', '▧', '▤', '♧', '⚙'][index]}</Text><View><Text style={styles.profileRowTitle}>{item}</Text><Text style={styles.muted}>{index === 0 ? 'Previous requests and city context' : 'Available in your local profile'}</Text></View><Text style={styles.rowCount}>{index < 4 ? '0' + (index + 1) : '›'}</Text></Pressable>)}<PrimaryButton title="Close" secondary onPress={onClose} /></View>; }
 
 function MoreSheet({ onSelect, onHandoff }: { onSelect: (sheet: Sheet) => void; onHandoff: () => void }) { return <View>{[['Add Complaint', 'Draft a civic issue with location and evidence', 'report'], ['Emergency', 'Open official contacts when speed matters', 'emergency'], ['Post', 'Share a local observation with your city', 'post'], ['News in your city', 'Read citizen reports and labelled updates', 'news']].map(([title, copy, target]) => <Pressable key={title} onPress={() => onSelect(target as Sheet)} style={styles.menuRow}><View style={styles.menuIcon}><Text>◌</Text></View><View><Text style={styles.menuTitle}>{title}</Text><Text style={styles.muted}>{copy}</Text></View><Text style={styles.rowCount}>›</Text></Pressable>)}<View style={styles.handoff}><Kicker>WHATSAPP HANDOFF</Kicker><Text style={styles.handoffCopy}>Already asked the assistant on WhatsApp? Continue here without typing the request again.</Text><PrimaryButton title="Open transferred request" onPress={onHandoff} /></View></View>; }
 
-function ReportSheet({ success, photo, onPhoto, onSubmit, onClose }: { success: boolean; photo: string | null; onPhoto: () => void; onSubmit: () => void; onClose: () => void }) { if (success) return <View style={styles.successCard}><Text style={styles.successMark}>✓</Text><Text style={styles.successTitle}>Report saved in Smart Nagrik.</Text><Text style={styles.successCopy}>Pothole · Bengaluru · Reference SN-2408. You can find its status later in Profile.</Text><PrimaryButton title="Back to city" secondary onPress={onClose} /></View>; return <FormShell><Text style={styles.fieldLabel}>ISSUE TYPE</Text><TextInput placeholder="Pothole, garbage, streetlight…" placeholderTextColor="#8C8C86" style={styles.fieldInput} /><Text style={styles.fieldLabel}>WHAT HAPPENED?</Text><TextInput multiline placeholder="Add one clear detail that will help someone understand the issue." placeholderTextColor="#8C8C86" style={[styles.fieldInput, styles.textArea]} /><Text style={styles.fieldLabel}>LOCATION</Text><TextInput placeholder="Street, landmark or area" placeholderTextColor="#8C8C86" style={styles.fieldInput} /><Pressable onPress={onPhoto} style={styles.uploadButton}><Text>＋ Add photo {photo ? '· attached' : '(optional)'}</Text></Pressable>{photo && <Image source={{ uri: photo }} style={styles.attachedPhoto} />}<PrimaryButton title="Submit report" onPress={onSubmit} /><Text style={styles.formNote}>This creates a Smart Nagrik acknowledgement. It does not claim an official government submission.</Text></FormShell>; }
-
-function PostSheet({ success, photo, onPhoto, onSubmit, onClose }: { success: boolean; photo: string | null; onPhoto: () => void; onSubmit: () => void; onClose: () => void }) { if (success) return <View style={styles.successCard}><Text style={styles.successMark}>✓</Text><Text style={styles.successTitle}>Your post is ready for the city feed.</Text><Text style={styles.successCopy}>Your observation is labelled as a Citizen Report and stays distinct from an official complaint.</Text><PrimaryButton title="Back to city" secondary onPress={onClose} /></View>; return <FormShell><Text style={styles.fieldLabel}>WHAT SHOULD PEOPLE KNOW?</Text><TextInput placeholder="e.g. Pothole beside the school gate" placeholderTextColor="#8C8C86" style={styles.fieldInput} /><Text style={styles.fieldLabel}>DESCRIPTION</Text><TextInput multiline placeholder="Share the observation in a few useful lines." placeholderTextColor="#8C8C86" style={[styles.fieldInput, styles.textArea]} /><Text style={styles.fieldLabel}>LOCATION</Text><TextInput placeholder="Street, landmark or area" placeholderTextColor="#8C8C86" style={styles.fieldInput} /><Pressable onPress={onPhoto} style={styles.uploadButton}><Text>＋ Add image {photo ? '· attached' : '(optional)'}</Text></Pressable>{photo && <Image source={{ uri: photo }} style={styles.attachedPhoto} />}<PrimaryButton title="Publish post" onPress={onSubmit} /><Text style={styles.formNote}>Public posts are labelled as citizen observations and do not verify an issue by themselves.</Text></FormShell>; }
-function FormShell({ children }: { children: ReactNode }) { return <View style={styles.formStack}>{children}</View>; }
-
-function NewsSheet({ supported, onSupport }: { supported: boolean[]; onSupport: (index: number) => void }) { return <View>{[['Streetlight out near 12th Main', 'A dark stretch is making the footpath harder to use after 8 p.m.', 'CITIZEN REPORT'], ['Waterlogging watch after evening rain', 'Traffic is moving slowly around the low-lying stretch near Domlur.', 'CITY NEWS']].map(([title, copy, source], index) => <View key={title} style={styles.feedCard}><Image source={hero} style={styles.feedImage} /><Text style={styles.feedSource}>{source}</Text><Text style={styles.feedTitle}>{title}</Text><Text style={styles.muted}>{copy}</Text><View style={styles.feedFooter}><Text style={styles.muted}>Bengaluru · {index ? '1 hr' : '28 min'} ago</Text><View style={styles.feedActions}><Pressable onPress={() => onSupport(index)} style={[styles.supportButton, supported[index] && styles.supported]}><Text>{supported[index] ? '✓ With You' : '♧ With You'} · {supported[index] ? 43 : 42}</Text></Pressable><Pressable onPress={() => Share.share({ message: `${title} · shared from Smart Nagrik` })} style={styles.shareButton}><Text>Share</Text></Pressable></View></View></View>)}</View>; }
+function ReportSheet({ draft, photo, onPhoto, onClose }: { draft: ReportDraft; photo: SelectedPhoto | null; onPhoto: () => void; onClose: () => void }) { return <ReportForm draft={draft} photo={photo} onPhoto={onPhoto} onClose={onClose} styles={styles} Button={PrimaryButton} />; }
+function PostSheet({ photo, onPhoto, onClose }: { photo: SelectedPhoto | null; onPhoto: () => void; onClose: () => void }) { return <PostForm photo={photo} onPhoto={onPhoto} onClose={onClose} styles={styles} Button={PrimaryButton} />; }
+function NewsSheet() { return <View><Text style={styles.sheetIntro}>Community reports are citizen observations, not official news. A live news provider is not connected.</Text><CivicFeed /><CivicFeed posts /></View>; }
 
 function EmergencySheet() { return <View><Text style={styles.sheetIntro}>Smart Nagrik does not dispatch responders. It helps you reach the official number you choose.</Text>{[['National emergency assistance', 'Police, fire, ambulance · India', '112'], ['Police', 'Immediate police assistance', '100'], ['Ambulance', 'Medical emergency support', '108'], ['Fire', 'Fire and rescue service', '101']].map(([title, copy, number]) => <View key={title} style={styles.emergencyRow}><View style={styles.emergencyIcon}><Text>＋</Text></View><View><Text style={styles.profileRowTitle}>{title}</Text><Text style={styles.muted}>{copy}</Text></View><Pressable onPress={() => Linking.openURL(`tel:${number}`)} style={styles.callButton}><Text style={styles.callText}>{number}</Text></Pressable></View>)}</View>; }
-function AlertsSheet() { return <View>{[['Rain may slow the route', 'Light rain is moving across the central corridor. Updated 8 minutes ago.'], ['Roadworks near 100 Feet Road', 'Expect a short diversion near the place suggestions.']].map(([title, copy]) => <View key={title} style={styles.alertCard}><Text style={styles.alertSymbol}>!</Text><View><Text style={styles.profileRowTitle}>{title}</Text><Text style={styles.muted}>{copy}</Text></View></View>)}</View>; }
+function AlertsSheet({ reports }: { reports: CivicReport[] }) { return <View><Text style={styles.sheetIntro}>Community reports from your current civic results. These are not official warnings.</Text>{reports.length ? reports.map((report) => <CivicReportCard key={report.id} report={report} />) : <Text style={styles.muted}>No location-relevant reports are loaded. Ask about issues around a specific area to explore saved community reports.</Text>}</View>; }
 
 const styles = StyleSheet.create({
   safeArea: { flex: 1, backgroundColor: colors.paper }, flex: { flex: 1 }, scrollContent: { paddingBottom: 24 }, loadingScreen: { flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: colors.paper },

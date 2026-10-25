@@ -1,5 +1,9 @@
 # WhatsApp Local Handshake Test
 
+> For the integrated Android + WhatsApp backend, run `../backend/app.py` and
+> follow `../backend/README.md`. This standalone server remains the original
+> messaging proof of concept; do not run it alongside the integrated backend.
+
 Prove that WhatsApp can talk to a Python program running on your Windows laptop — no cloud hosting needed.
 
 **What happens:**

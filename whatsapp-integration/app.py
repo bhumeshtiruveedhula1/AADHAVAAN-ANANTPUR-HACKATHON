@@ -279,7 +279,7 @@ def _mask_phone(phone: str) -> str:
     return f"{prefix}{num[:3]}****{num[-4:]}"
 
 
-def _verify_twilio_signature(auth_token: str | None = None) -> bool:
+def _verify_twilio_signature(auth_token: str | None = None, public_url: str | None = None) -> bool:
     """
     Validate the X-Twilio-Signature header.
 
@@ -299,6 +299,11 @@ def _verify_twilio_signature(auth_token: str | None = None) -> bool:
         return False
 
     validator = RequestValidator(token)
+
+    # The central backend passes the exact registered HTTPS URL. The original
+    # standalone proof still supports forwarded headers when no URL is passed.
+    if public_url:
+        return validator.validate(public_url, request.form.to_dict(), signature)
 
     # Reconstruct the public URL Twilio actually called
     raw_proto = request.headers.get("X-Forwarded-Proto", request.scheme)
